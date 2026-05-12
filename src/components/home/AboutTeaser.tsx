@@ -1,0 +1,54 @@
+import Link from "next/link";
+
+const CLIENT_NAME = process.env.NEXT_PUBLIC_CLIENT_NAME ?? "";
+const CLIENT_TITLE = process.env.NEXT_PUBLIC_CLIENT_TITLE ?? "";
+const CLIENT_YEARS = process.env.NEXT_PUBLIC_CLIENT_YEARS ?? "";
+
+export default function AboutTeaser() {
+  return (
+    <section className="px-4 py-16 md:px-6 md:py-24">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-12">
+        <div className="flex w-full items-center justify-center lg:w-2/5">
+          <div className="aspect-[3/4] w-full max-w-[280px] rounded border-2 border-[var(--color-gold-primary)] bg-[var(--color-bg-surface)] shadow-[0_0_40px_rgba(201,168,76,0.25)] flex items-center justify-center md:max-w-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-dim)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12 opacity-40 md:h-16 md:w-16">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+        </div>
+
+        <div className="w-full lg:w-3/5">
+          <h2 className="mb-4 font-[family-name:var(--font-heading)] text-2xl text-[var(--color-gold-light)] md:mb-6 md:text-4xl">
+            Who Is {CLIENT_TITLE} {CLIENT_NAME}?
+          </h2>
+
+          <p className="mb-3 text-sm text-[var(--color-text-secondary)] leading-relaxed md:mb-4 md:text-base">
+            Born into a lineage of traditional healers, {CLIENT_TITLE}{" "}
+            {CLIENT_NAME} received ancestral gifts that most cannot learn from
+            books.
+          </p>
+
+          <p className="mb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed md:mb-6 md:text-base">
+            Over {CLIENT_YEARS} years, clients from Uganda, Kenya, South
+            Africa, the UK, the USA, and beyond have sought guidance — and
+            found it.
+          </p>
+
+          <Link
+            href="/about/"
+            className="text-sm text-[var(--color-gold-primary)] transition-colors hover:text-[var(--color-gold-light)] md:text-base"
+          >
+            Read the Full Story →
+          </Link>
+
+          <div className="mt-6 flex flex-wrap gap-4 text-xs text-[var(--color-text-muted)] md:mt-8 md:gap-8 md:text-sm">
+            <span>🌍 International Clients</span>
+            <span>🕯 {CLIENT_YEARS}+ Years Practice</span>
+            <span>✦ Ancient Lineage</span>
+            <span>🔒 100% Private</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
