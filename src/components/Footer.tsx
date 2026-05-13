@@ -139,27 +139,34 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-gold-dim/30 pt-6 md:mt-12 md:pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-xs text-text-muted">
-              &copy; {new Date().getFullYear()} {brandName}. All Rights
-              Reserved.{" "}
-              <Link
-                href="/privacy-policy"
-                className="transition-colors hover:text-gold-primary"
-              >
-                Privacy Policy
-              </Link>{" "}
-              |{" "}
-              <Link
-                href="/disclaimer"
-                className="transition-colors hover:text-gold-primary"
-              >
-                Disclaimer
-              </Link>
-            </p>
-            <p className="text-xs text-text-muted">
-              Spiritual services are for guidance and spiritual balance only.
-              Results are not guaranteed.
-            </p>
+            <div className="flex flex-col gap-2">
+              <p className="text-xs text-text-muted">
+                &copy; {new Date().getFullYear()} {brandName}. All Rights
+                Reserved.{" "}
+                <Link
+                  href="/privacy-policy"
+                  className="transition-colors hover:text-gold-primary"
+                >
+                  Privacy Policy
+                </Link>{" "}
+                |{" "}
+                <Link
+                  href="/disclaimer"
+                  className="transition-colors hover:text-gold-primary"
+                >
+                  Disclaimer
+                </Link>
+              </p>
+              <p className="text-[0.65rem] uppercase tracking-widest text-gold-dim/60">
+                ✦ 18+ Only — Spiritual Services for Adults ✦
+              </p>
+            </div>
+            <div className="text-center md:text-right">
+              <p className="text-xs text-text-muted">
+                Spiritual services are for guidance and spiritual balance only.
+                Results are not guaranteed and vary by individual.
+              </p>
+            </div>
           </div>
         </div>
       </div>

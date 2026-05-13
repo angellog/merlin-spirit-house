@@ -1,6 +1,7 @@
 import HeroSection from "@/components/home/HeroSection";
 import SocialProofStrip from "@/components/home/SocialProofStrip";
 import AboutTeaser from "@/components/home/AboutTeaser";
+import VideoIntroduction from "@/components/home/VideoIntroduction";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import FeaturedTestimonials from "@/components/home/FeaturedTestimonials";
@@ -148,6 +149,7 @@ export default function HomePage() {
       <HeroSection />
       <SocialProofStrip />
       <AboutTeaser />
+      <VideoIntroduction />
       <ServicesGrid />
       <HowItWorks />
       <FeaturedTestimonials />
