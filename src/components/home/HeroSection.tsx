@@ -25,22 +25,22 @@ export default function HeroSection() {
         />
         <div className="bg-stars absolute inset-0 opacity-30" />
       </div>
-      <div className="bg-gradient-to-b from-[var(--color-bg-deepnight)]/40 via-[var(--color-bg-deepnight)]/60 to-[var(--color-bg-deepnight)] absolute inset-0" />
+      <div className="bg-gradient-to-b from-deepnight/40 via-deepnight/60 to-deepnight absolute inset-0" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 py-16 text-center md:px-6 md:py-0">
-        <p className="mb-4 font-[family-name:var(--font-heading)] text-[0.65rem] uppercase tracking-[0.15em] text-[var(--color-gold-primary)] md:mb-6 md:text-[0.75rem] md:tracking-[0.2em]">
+        <p className="mb-4 font-[family-name:var(--font-heading)] text-[0.65rem] uppercase tracking-[0.15em] text-gold-primary md:mb-6 md:text-[0.75rem] md:tracking-[0.2em]">
           ✦ Trusted Traditional Healer &amp; Voodoo Practitioner ✦
         </p>
 
-        <h1 className="mb-3 bg-gradient-to-r from-[var(--color-gold-primary)] to-[var(--color-gold-light)] bg-clip-text font-[family-name:var(--font-heading)] text-[clamp(2.2rem,9vw,5.5rem)] font-bold text-transparent leading-[1.1] md:mb-4">
+        <h1 className="mb-3 bg-gradient-to-r from-gold-primary to-gold-light bg-clip-text font-[family-name:var(--font-heading)] text-[clamp(2.2rem,9vw,5.5rem)] font-bold text-transparent leading-[1.1] md:mb-4">
           {CLIENT_TITLE} {CLIENT_NAME}
         </h1>
 
-        <h2 className="mb-4 font-[family-name:var(--font-serif)] text-[1.15rem] italic text-[var(--color-text-primary)] md:mb-6 md:text-[1.5rem]">
+        <h2 className="mb-4 font-[family-name:var(--font-serif)] text-[1.15rem] italic text-text-primary md:mb-6 md:text-[1.5rem]">
           {CLIENT_TAGLINE}
         </h2>
 
-        <p className="mx-auto mb-6 max-w-[580px] text-[0.95rem] leading-relaxed text-[var(--color-text-secondary)] md:mb-10 md:text-[1.05rem]">
+        <p className="mx-auto mb-6 max-w-[580px] text-[0.95rem] leading-relaxed text-text-secondary md:mb-10 md:text-[1.05rem]">
           For {CLIENT_YEARS} years, {CLIENT_TITLE} {CLIENT_NAME} has reunited
           lost lovers, broken generational curses, attracted wealth, and
           shielded the innocent from spiritual attack. Whatever darkness you
@@ -50,7 +50,7 @@ export default function HeroSection() {
         <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:justify-center md:gap-4">
           <Link
             href="/consultation/"
-            className="inline-block bg-gradient-to-r from-[var(--color-gold-primary)] to-[var(--color-gold-light)] px-6 py-3.5 font-[family-name:var(--font-heading)] text-[0.85rem] font-bold uppercase tracking-wider text-[var(--color-bg-deepnight)] shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)] md:px-8 md:py-4 md:text-sm"
+            className="inline-block bg-gradient-to-r from-gold-primary to-gold-light px-6 py-3.5 font-[family-name:var(--font-heading)] text-[0.85rem] font-bold uppercase tracking-wider text-deepnight shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)] md:px-8 md:py-4 md:text-sm"
           >
             ✦ Begin Your Consultation
           </Link>
@@ -72,7 +72,7 @@ export default function HeroSection() {
           </a>
         </div>
 
-        <div className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[0.7rem] text-[var(--color-gold-dim)] md:mt-8 md:gap-6 md:text-xs">
+        <div className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[0.7rem] text-gold-dim md:mt-8 md:gap-6 md:text-xs">
           <span>{CLIENT_YEARS}+ Years Experience</span>
           <span>100% Confidential</span>
           <span>Available 24/7</span>

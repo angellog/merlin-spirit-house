@@ -3,5 +3,5 @@ export default function StudioLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <body>{children}</body>;
+  return <>{children}</>;
 }

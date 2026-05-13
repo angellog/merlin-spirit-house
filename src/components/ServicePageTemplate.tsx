@@ -85,7 +85,7 @@ export default function ServicePageTemplate({
           </div>
         )}
         <div className="bg-stars absolute inset-0 opacity-20" />
-        <div className="bg-gradient-to-b from-bg-deepnight/60 via-bg-deepnight/80 to-bg-deepnight absolute inset-0" />
+        <div className="bg-gradient-to-b from-deepnight/60 via-deepnight/80 to-deepnight absolute inset-0" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           {icon && (
@@ -101,7 +101,7 @@ export default function ServicePageTemplate({
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/consultation/"
-              className="inline-block bg-gradient-to-r from-gold-primary to-gold-light px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-bg-deepnight shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)]"
+              className="inline-block bg-gradient-to-r from-gold-primary to-gold-light px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-deepnight shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)]"
             >
               ✦ Begin Your Consultation
             </Link>
@@ -149,7 +149,7 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-bg-elevated">
+      <section className="py-24 px-6 bg-elevated">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-10 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-text-primary">
             Who This Is For
@@ -191,7 +191,7 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-bg-elevated">
+      <section className="py-24 px-6 bg-elevated">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-text-primary">
             What to Expect
@@ -209,7 +209,7 @@ export default function ServicePageTemplate({
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="relative rounded-r-lg border-l-3 border-l-gold-primary bg-bg-surface p-6"
+                className="relative rounded-r-lg border-l-3 border-l-gold-primary bg-surface p-6"
               >
                 <span className="absolute left-4 top-4 font-serif text-6xl leading-none text-gold-primary/20">
                   &ldquo;
@@ -235,7 +235,7 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-bg-elevated">
+      <section className="py-24 px-6 bg-elevated">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-10 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-text-primary">
             Frequently Asked Questions About {title}
@@ -244,7 +244,7 @@ export default function ServicePageTemplate({
             {faqItems.map((item, i) => (
               <details
                 key={i}
-                className="group border border-gold-dim/20 bg-bg-surface"
+                className="group border border-gold-dim/20 bg-surface"
               >
                 <summary className="flex cursor-pointer items-center justify-between p-5 font-[family-name:var(--font-heading)] text-sm font-semibold text-text-primary transition-colors hover:text-gold-primary">
                   {item.question}
@@ -271,7 +271,7 @@ export default function ServicePageTemplate({
               <Link
                 key={i}
                 href={service.href}
-                className="inline-block border border-gold-dim/30 bg-bg-surface px-6 py-3 font-[family-name:var(--font-heading)] text-sm font-semibold text-gold-primary transition-colors hover:bg-gold-primary/10"
+                className="inline-block border border-gold-dim/30 bg-surface px-6 py-3 font-[family-name:var(--font-heading)] text-sm font-semibold text-gold-primary transition-colors hover:bg-gold-primary/10"
               >
                 ✦ {service.title}
               </Link>

@@ -30,13 +30,13 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-[var(--color-bg-elevated)] px-4 py-16 md:px-6 md:py-24">
+    <section className="bg-elevated px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center md:mb-12">
-          <h2 className="mb-3 font-[family-name:var(--font-heading)] text-2xl text-[var(--color-gold-light)] md:mb-4 md:text-4xl">
+          <h2 className="mb-3 font-[family-name:var(--font-heading)] text-2xl text-gold-light md:mb-4 md:text-4xl">
             How the Process Works
           </h2>
-          <p className="text-sm text-[var(--color-text-secondary)] md:text-base">
+          <p className="text-sm text-text-secondary md:text-base">
             Private, Confidential, and Handled Personally by {CLIENT_TITLE}{" "}
             {CLIENT_NAME}
           </p>
@@ -47,14 +47,14 @@ export default function HowItWorks() {
             <div key={step.number} className="flex flex-1">
               <div className="flex-1">
                 <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-0">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-gold-primary)] bg-[var(--color-bg-deepnight)] font-[family-name:var(--font-heading)] text-lg text-[var(--color-gold-primary)] md:mb-2 md:h-14 md:w-14 md:text-2xl">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-gold-primary bg-deepnight font-[family-name:var(--font-heading)] text-lg text-gold-primary md:mb-2 md:h-14 md:w-14 md:text-2xl">
                     {step.number}
                   </div>
                   <div className="md:text-center">
-                    <h3 className="font-[family-name:var(--font-heading)] text-base text-[var(--color-text-primary)] md:mb-2 md:text-lg">
+                    <h3 className="font-[family-name:var(--font-heading)] text-base text-text-primary md:mb-2 md:text-lg">
                       {step.title}
                     </h3>
-                    <p className="text-xs text-[var(--color-text-secondary)] md:text-sm">
+                    <p className="text-xs text-text-secondary md:text-sm">
                       {step.desc}
                     </p>
                   </div>
@@ -62,15 +62,15 @@ export default function HowItWorks() {
               </div>
               {i < steps.length - 1 && (
                 <>
-                  <div className="ml-5 my-2 h-6 w-px bg-[var(--color-gold-dim)] md:hidden" />
-                  <div className="hidden h-px w-12 self-center border-t-2 border-dashed border-[var(--color-gold-dim)] md:block" />
+                  <div className="ml-5 my-2 h-6 w-px bg-gold-dim md:hidden" />
+                  <div className="hidden h-px w-12 self-center border-t-2 border-dashed border-gold-dim md:block" />
                 </>
               )}
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-center text-sm font-medium text-[var(--color-text-primary)] md:mt-12 md:text-base">
+        <p className="mt-8 text-center text-sm font-medium text-text-primary md:mt-12 md:text-base">
           Most clients begin feeling a shift within 7–21 days.
         </p>
       </div>

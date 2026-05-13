@@ -93,11 +93,11 @@ export default function PricingPage() {
       <section className="py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-16">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-primary)]">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-gold-primary">
               Transparent Pricing
             </p>
             <h1>Spiritual Healing Pricing &amp; Packages</h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-[var(--color-text-secondary)]">
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-text-secondary">
               Every journey begins with a free consultation. {clientTitle} {clientName} will assess your situation and recommend the right path — with full transparency on cost before any work begins.
             </p>
           </div>
@@ -112,29 +112,29 @@ export default function PricingPage() {
                   key={tier.name}
                   className={`relative rounded-2xl border p-8 flex flex-col ${
                     tier.featured
-                      ? "border-transparent bg-gradient-to-b from-[var(--color-gold-primary)]/20 to-[var(--color-bg-surface)] ring-2 ring-[var(--color-gold-primary)]/60"
-                      : "border-[var(--color-gold-dim)] bg-[var(--color-bg-surface)]"
+                      ? "border-transparent bg-gradient-to-b from-gold-primary/20 to-surface ring-2 ring-gold-primary/60"
+                      : "border-gold-dim bg-surface"
                   }`}
                 >
                   {tier.featured && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[var(--color-gold-primary)] to-[var(--color-gold-dim)] px-4 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-bg-deepnight)] font-[family-name:var(--font-heading)]">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-gold-primary to-gold-dim px-4 py-1 text-xs font-semibold uppercase tracking-wider text-deepnight font-[family-name:var(--font-heading)]">
                       Most Popular
                     </span>
                   )}
 
-                  <h3 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-text-primary)]">
+                  <h3 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-text-primary">
                     {tier.name}
                   </h3>
 
-                  <p className="mt-4 text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-gold-primary)]">
+                  <p className="mt-4 text-3xl font-bold font-[family-name:var(--font-heading)] text-gold-primary">
                     {tier.price}
                   </p>
 
                   <ul className="mt-8 space-y-3 flex-1">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
-                        <span className="mt-0.5 shrink-0 text-[var(--color-gold-primary)]">◈</span>
-                        <span className="text-sm text-[var(--color-text-secondary)] font-[family-name:var(--font-serif)]">
+                        <span className="mt-0.5 shrink-0 text-gold-primary">◈</span>
+                        <span className="text-sm text-text-secondary font-[family-name:var(--font-serif)]">
                           {feature}
                         </span>
                       </li>
@@ -147,8 +147,8 @@ export default function PricingPage() {
                     rel={isWhatsapp ? "noopener noreferrer" : undefined}
                     className={`mt-8 inline-flex h-12 w-full items-center justify-center rounded-full text-sm font-semibold uppercase tracking-wider font-[family-name:var(--font-heading)] transition-all ${
                       tier.featured
-                        ? "bg-gradient-to-r from-[var(--color-gold-primary)] to-[var(--color-gold-dim)] text-[var(--color-bg-deepnight)] hover:brightness-110"
-                        : "border-2 border-[var(--color-gold-primary)] text-[var(--color-gold-primary)] hover:bg-[var(--color-gold-primary)] hover:text-[var(--color-bg-deepnight)]"
+                        ? "bg-gradient-to-r from-gold-primary to-gold-dim text-deepnight hover:brightness-110"
+                        : "border-2 border-gold-primary text-gold-primary hover:bg-gold-primary hover:text-deepnight"
                     }`}
                   >
                     {isWhatsapp && (
@@ -166,13 +166,13 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[var(--color-bg-surface)]">
+      <section className="py-16 bg-surface">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <span className="text-4xl text-[var(--color-gold-primary)]">◈</span>
-          <h2 className="mt-6 font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-gold-primary)]">
+          <span className="text-4xl text-gold-primary">◈</span>
+          <h2 className="mt-6 font-[family-name:var(--font-heading)] text-2xl font-semibold text-gold-primary">
             No Hidden Fees. No Surprises.
           </h2>
-          <p className="mt-4 text-lg text-[var(--color-text-secondary)] font-[family-name:var(--font-serif)]">
+          <p className="mt-4 text-lg text-text-secondary font-[family-name:var(--font-serif)]">
             The full cost is explained before any work begins.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -180,7 +180,7 @@ export default function PricingPage() {
               href={whatsappBaseUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-14 items-center justify-center rounded-full bg-[var(--color-whatsapp)] px-8 font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-white transition-all hover:brightness-110 animate-pulse-whatsapp"
+              className="inline-flex h-14 items-center justify-center rounded-full bg-whatsapp px-8 font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-white transition-all hover:brightness-110 animate-pulse-whatsapp"
             >
               <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.038 2.149.002 1.135.826 2.129 1.213 2.678.388.549 2.285 3.674 5.603 5.162.783.338 1.392.539 1.866.689.784.249 1.497.214 2.061.131.628-.099 1.927-.787 2.199-1.553.272-.767.272-1.424.194-1.553-.075-.149-.273-.223-.57-.371z" />
@@ -190,7 +190,7 @@ export default function PricingPage() {
             </a>
             <Link
               href="/consultation/"
-              className="inline-flex h-14 items-center justify-center rounded-full border-2 border-[var(--color-gold-primary)] px-8 font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-[var(--color-gold-primary)] transition-all hover:bg-[var(--color-gold-primary)] hover:text-[var(--color-bg-deepnight)]"
+              className="inline-flex h-14 items-center justify-center rounded-full border-2 border-gold-primary px-8 font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-gold-primary transition-all hover:bg-gold-primary hover:text-deepnight"
             >
               Free Consultation
             </Link>

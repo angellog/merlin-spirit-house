@@ -11,7 +11,7 @@ export default function AnnouncementBar() {
 
   return (
     <div
-      className="flex h-8 w-full items-center justify-center gap-2 bg-[var(--color-gold-primary)] px-2 text-[0.65rem] font-[family-name:var(--font-body)] md:h-9 md:gap-4 md:text-[0.8rem]"
+      className="flex h-8 w-full items-center justify-center gap-2 bg-gold-primary px-2 text-[0.65rem] font-[family-name:var(--font-body)] md:h-9 md:gap-4 md:text-[0.8rem]"
       style={{ zIndex: 1001 }}
     >
       <span className="font-semibold text-[#0A0A12]">

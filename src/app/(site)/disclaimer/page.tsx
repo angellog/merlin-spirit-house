@@ -13,13 +13,13 @@ export default function DisclaimerPage() {
         <h1>Disclaimer</h1>
 
         <div className="mt-12 space-y-8">
-          <div className="rounded-2xl border-2 border-[var(--color-gold-primary)]/40 bg-[var(--color-bg-surface)] p-8">
-            <p className="text-lg leading-relaxed text-[var(--color-text-primary)] font-[family-name:var(--font-serif)] italic">
+          <div className="rounded-2xl border-2 border-gold-primary/40 bg-surface p-8">
+            <p className="text-lg leading-relaxed text-text-primary font-[family-name:var(--font-serif)] italic">
               Spiritual services are offered for guidance and spiritual balance. Results may vary. No specific outcome is guaranteed.
             </p>
           </div>
 
-          <div className="space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
+          <div className="space-y-6 text-text-secondary leading-relaxed">
             <p>
               The spiritual healing, consultation, and ritual services provided through this website are intended for spiritual guidance, emotional support, and personal insight. These services are rooted in traditional African spiritual practice and are offered as an alternative or complementary approach to personal well-being.
             </p>
@@ -49,7 +49,7 @@ export default function DisclaimerPage() {
           <div className="pt-4">
             <Link
               href="/"
-              className="inline-flex h-12 items-center justify-center rounded-full border-2 border-[var(--color-gold-primary)] px-8 font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-[var(--color-gold-primary)] transition-all hover:bg-[var(--color-gold-primary)] hover:text-[var(--color-bg-deepnight)]"
+              className="inline-flex h-12 items-center justify-center rounded-full border-2 border-gold-primary px-8 font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-gold-primary transition-all hover:bg-gold-primary hover:text-deepnight"
             >
               Return Home
             </Link>

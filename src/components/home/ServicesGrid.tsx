@@ -67,10 +67,10 @@ export default function ServicesGrid() {
     <section id="services" className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 text-center md:mb-12">
-          <h2 className="mb-3 font-[family-name:var(--font-heading)] text-2xl text-[var(--color-gold-light)] md:mb-4 md:text-4xl">
+          <h2 className="mb-3 font-[family-name:var(--font-heading)] text-2xl text-gold-light md:mb-4 md:text-4xl">
             How I Can Help You
           </h2>
-          <p className="text-sm font-[family-name:var(--font-serif)] italic text-[var(--color-text-secondary)] md:text-base">
+          <p className="text-sm font-[family-name:var(--font-serif)] italic text-text-secondary md:text-base">
             Every service is performed personally. Nothing is delegated.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function ServicesGrid() {
           {services.map((s) => (
             <div
               key={s.href}
-              className="group relative flex flex-col overflow-hidden rounded-lg border border-[var(--color-gold-dim)] bg-[var(--color-bg-surface)] transition-all hover:border-[var(--color-gold-primary)] hover:shadow-[0_0_25px_rgba(201,168,76,0.15)]"
+              className="group relative flex flex-col overflow-hidden rounded-lg border border-gold-dim bg-surface transition-all hover:border-gold-primary hover:shadow-[0_0_25px_rgba(201,168,76,0.15)]"
             >
               <div className="relative h-48 w-full overflow-hidden">
                 {s.image ? (
@@ -90,28 +90,28 @@ export default function ServicesGrid() {
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-[var(--color-bg-elevated)] text-4xl opacity-40">
+                  <div className="flex h-full w-full items-center justify-center bg-elevated text-4xl opacity-40">
                     {s.icon}
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-surface)] to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
                 {s.badge && (
-                  <span className="absolute right-3 top-3 rounded-full bg-[var(--color-gold-primary)] px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-bg-deepnight)] md:px-3 md:py-1">
+                  <span className="absolute right-3 top-3 rounded-full bg-gold-primary px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-deepnight md:px-3 md:py-1">
                     {s.badge}
                   </span>
                 )}
               </div>
 
               <div className="flex flex-1 flex-col p-5 md:p-6">
-                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-base font-bold text-[var(--color-gold-light)] transition-colors group-hover:text-[var(--color-gold-primary)] md:text-lg">
+                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-base font-bold text-gold-light transition-colors group-hover:text-gold-primary md:text-lg">
                   {s.title}
                 </h3>
-                <p className="mb-4 flex-1 text-xs leading-relaxed text-[var(--color-text-secondary)] md:text-sm">
+                <p className="mb-4 flex-1 text-xs leading-relaxed text-text-secondary md:text-sm">
                   {s.body}
                 </p>
                 <Link
                   href={s.href}
-                  className="text-xs font-bold uppercase tracking-wider text-[var(--color-gold-primary)] transition-colors hover:text-[var(--color-gold-light)] md:text-sm"
+                  className="text-xs font-bold uppercase tracking-wider text-gold-primary transition-colors hover:text-gold-light md:text-sm"
                 >
                   Learn More →
                 </Link>

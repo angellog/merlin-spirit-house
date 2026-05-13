@@ -41,16 +41,16 @@ const allSnippets = [...snippets, ...snippets];
 
 export default function SocialProofStrip() {
   return (
-    <section className="border-y border-[var(--color-gold-dim)] bg-[var(--color-bg-surface)] py-3 md:py-4">
+    <section className="border-y border-gold-dim bg-surface py-3 md:py-4">
       <div className="animate-marquee flex min-w-max">
         {allSnippets.map((s, i) => (
           <div
             key={i}
-            className="flex items-center gap-2 whitespace-nowrap px-5 text-[0.6rem] text-[var(--color-text-secondary)] md:gap-3 md:px-8 md:text-xs"
+            className="flex items-center gap-2 whitespace-nowrap px-5 text-[0.6rem] text-text-secondary md:gap-3 md:px-8 md:text-xs"
           >
-            <span className="text-[var(--color-gold-primary)]">{s.stars}</span>
+            <span className="text-gold-primary">{s.stars}</span>
             <span>&ldquo;{s.text}&rdquo;</span>
-            <span className="font-medium text-[var(--color-text-primary)]">
+            <span className="font-medium text-text-primary">
               — {s.name}, {s.location}
             </span>
           </div>
