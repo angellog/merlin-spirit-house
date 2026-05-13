@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import JsonLd from "@/components/JsonLd";
 
 const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "Ndaula";
@@ -61,16 +62,29 @@ export default function AboutPage() {
       <JsonLd data={personSchema} />
       <JsonLd data={profileSchema} />
 
-      <section className="min-h-[60vh] bg-stars flex flex-col items-center justify-center text-center px-6 py-24">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-gold-primary">
-          About the Healer
-        </p>
-        <h1 className="max-w-4xl">
-          About {clientTitle} {clientName} — {clientYears} Years of Spiritual Healing
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed font-[family-name:var(--font-serif)] italic text-text-secondary">
-          Born into a sacred lineage of traditional healers in the heart of Uganda, called by the spirits to restore balance, mend broken bonds, and illuminate the path forward.
-        </p>
+      <section className="relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/ritual-altar.jpg"
+            alt="About the Healer"
+            fill
+            className="object-cover opacity-20"
+          />
+          <div className="bg-stars absolute inset-0 opacity-20" />
+        </div>
+        <div className="bg-gradient-to-b from-deepnight/60 via-deepnight/80 to-deepnight absolute inset-0" />
+
+        <div className="relative z-10">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-gold-primary">
+            About the Healer
+          </p>
+          <h1 className="max-w-4xl">
+            About {clientTitle} {clientName} — {clientYears} Years of Spiritual Healing
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed font-[family-name:var(--font-serif)] italic text-text-secondary">
+            Born into a sacred lineage of traditional healers in the heart of Uganda, called by the spirits to restore balance, mend broken bonds, and illuminate the path forward.
+          </p>
+        </div>
       </section>
 
       <section className="py-24">
@@ -78,12 +92,16 @@ export default function AboutPage() {
           <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
             <div className="flex justify-center">
               <div className="relative">
-                <div className="h-[500px] w-full max-w-md rounded-2xl bg-elevated border-2 border-gold-primary/30 overflow-hidden">
-                  <div className="flex h-full items-center justify-center text-text-muted">
-                    <span className="text-6xl">⚜</span>
-                  </div>
+                <div className="relative h-[600px] w-full max-w-md rounded-2xl border-2 border-gold-primary/30 overflow-hidden shadow-[0_0_50px_rgba(201,168,76,0.2)]">
+                  <Image
+                    src="/images/portrait/prof-ndaula-full.jpg"
+                    alt={`${clientTitle} ${clientName}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 448px"
+                  />
                 </div>
-                <div className="absolute -bottom-3 -right-3 h-[500px] w-full max-w-md rounded-2xl border-2 border-gold-primary/20 -z-10" />
+                <div className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border-2 border-gold-primary/20 -z-10" />
               </div>
             </div>
 

@@ -27,6 +27,7 @@ export default function MoneySpellsPage() {
   return (
     <ServicePageTemplate
       title="Money Spells"
+      heroImage="/images/services/money-spells.jpg"
       seoH1="Money Spells That Work — Break Financial Blockages & Open Doors of Wealth"
       subheading="Poverty is not your destiny. The spirits of abundance are ready to move through me."
       leadParagraph={`I am ${clientTitle} ${clientName}, and for over 25 years I have helped thousands of people break free from financial stagnation, crushing debt, and the invisible spiritual forces that keep prosperity locked away from them. In the traditional African understanding, wealth is not merely a matter of hard work or luck — it is a matter of spiritual alignment. When the channels of abundance are blocked by curses, jealousy, ancestral debts, or negative energy, no amount of effort brings prosperity. I know this because I have seen it in thousands of readings. I do not offer empty promises of overnight riches. I perform the ancestral work that clears the blockages, opens the channels, and aligns your spirit with the flow of divine abundance. My clients do not just earn more — they find that money and opportunities flow toward them naturally, as if the universe has finally remembered their name.`}

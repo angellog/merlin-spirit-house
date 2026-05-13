@@ -27,6 +27,7 @@ export default function CurseRemovalPage() {
   return (
     <ServicePageTemplate
       title="Curse Removal"
+      heroImage="/images/services/curse-removal.jpg"
       seoH1="Curse Removal & Hex Breaking — Break Free from Spiritual Bondage Forever"
       subheading="What was placed upon you by darkness, I remove by the authority of the ancestors."
       leadParagraph={`I am ${clientTitle} ${clientName}, and for over 25 years I have broken curses that other healers declared unbreakable. A curse is a deliberate spiritual attack — a concentrated charge of negative energy directed at you by someone with the knowledge and intent to cause harm. Curses affect every dimension of your life: your health, your relationships, your finances, your peace of mind, and even the lives of your children. Some curses are recent and targeted; others are generational, passed down through a bloodline like an invisible inheritance of suffering. Whatever its origin, a curse does not expire on its own — it must be broken by someone with greater spiritual authority than the one who placed it. I carry that authority. I was trained through a lineage of practitioners who specialized in curse removal, and I have dismantled the most powerful and deeply rooted spiritual attacks across dozens of countries. When I break a curse, it stays broken, and I seal the channels so it can never return.`}

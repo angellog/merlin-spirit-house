@@ -30,6 +30,7 @@ const services = [
   },
   {
     icon: "◈",
+    image: "/images/services/money-spells.jpg",
     title: "Money & Prosperity Spells",
     body: "Open financial doors, clear debt blockages, attract business and career opportunities.",
     href: "/money-spells",
@@ -50,12 +51,14 @@ const services = [
   },
   {
     icon: "⊘",
+    image: "/images/services/curse-removal.jpg",
     title: "Curse & Hex Removal",
     body: "Break generational curses, remove hexes placed by enemies, and restore your natural fortune.",
     href: "/curse-removal",
   },
   {
     icon: "🕊",
+    image: "/images/services/spirit-blessings.jpg",
     title: "Spirit Blessings",
     body: "Invite the spirits to bless your home, business, relationships, and life path.",
     href: "/spirit-blessings",
