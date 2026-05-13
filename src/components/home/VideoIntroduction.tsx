@@ -30,7 +30,7 @@ export default function VideoIntroduction() {
               Personal Message
             </p>
             <h2 className="mb-6 font-[family-name:var(--font-heading)] text-3xl text-gold-light md:text-4xl">
-              Hear from {CLIENT_TITLE} {CLIENT_NAME} Directly
+              Personal Video: Hear from {CLIENT_TITLE} {CLIENT_NAME} Directly
             </h2>
             <p className="mb-6 text-text-secondary leading-relaxed">
               Authentic spiritual work begins with trust. I invite you to listen to this personal introduction to understand the ancestral authority and sincerity behind my practice.
