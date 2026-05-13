@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const CLIENT_TITLE = process.env.NEXT_PUBLIC_CLIENT_TITLE ?? "";
 const CLIENT_NAME = process.env.NEXT_PUBLIC_CLIENT_NAME ?? "";
@@ -6,20 +7,23 @@ const CLIENT_NAME = process.env.NEXT_PUBLIC_CLIENT_NAME ?? "";
 const services = [
   {
     icon: "♥",
+    image: "/images/services/love-spells.jpg",
     title: "Love & Relationship Spells",
-    body: "Bring back a lost lover, stop a separation, bind two hearts, or attract new love into your life. The most powerful work I do.",
+    body: "Bring back a lost lover, stop a separation, bind two hearts, or attract new love into your life.",
     href: "/love-spells",
     badge: "Most Requested",
   },
   {
     icon: "⧫",
+    image: "/images/hero/ritual-altar.jpg",
     title: "Binding Spells",
-    body: "Tie a lover to you, seal a commitment, or bind someone from harming you. The most requested spell after love work.",
+    body: "Tie a lover to you, seal a commitment, or bind someone from harming you.",
     href: "/binding-spells",
     badge: "Popular",
   },
   {
     icon: "✦",
+    image: "/images/services/voodoo-rituals.jpg",
     title: "Authentic Voodoo Rituals",
     body: "Real voodoo rooted in West African tradition. Not the Hollywood version — the ancient, powerful original.",
     href: "/voodoo-spells",
@@ -32,12 +36,14 @@ const services = [
   },
   {
     icon: "⬡",
+    image: "/images/services/protection-spells.jpg",
     title: "Protection & Cleansing",
     body: "Spiritual shields against attacks, jealousy, evil eye, and negative forces sent against you.",
     href: "/protection-spells",
   },
   {
     icon: "🌿",
+    image: "/images/services/traditional-healing.jpg",
     title: "Traditional African Healing",
     body: "Ancestral connection, herbal healing, and spiritual balance rooted in the old ways.",
     href: "/traditional-healing",
@@ -51,14 +57,14 @@ const services = [
   {
     icon: "🕊",
     title: "Spirit Blessings",
-    body: "Invite the spirits to bless your home, business, relationships, and life path. Begin a new chapter in peace and abundance.",
+    body: "Invite the spirits to bless your home, business, relationships, and life path.",
     href: "/spirit-blessings",
   },
 ];
 
 export default function ServicesGrid() {
   return (
-    <section className="px-4 py-16 md:px-6 md:py-24">
+    <section id="services" className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 text-center md:mb-12">
           <h2 className="mb-3 font-[family-name:var(--font-heading)] text-2xl text-[var(--color-gold-light)] md:mb-4 md:text-4xl">
@@ -69,30 +75,47 @@ export default function ServicesGrid() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-8">
           {services.map((s) => (
             <div
               key={s.href}
-              className="relative rounded-lg border border-[var(--color-gold-dim)] bg-[var(--color-bg-surface)] p-5 transition-all hover:border-[var(--color-gold-primary)] hover:shadow-[0_0_25px_rgba(201,168,76,0.15)] md:p-6"
+              className="group relative flex flex-col overflow-hidden rounded-lg border border-[var(--color-gold-dim)] bg-[var(--color-bg-surface)] transition-all hover:border-[var(--color-gold-primary)] hover:shadow-[0_0_25px_rgba(201,168,76,0.15)]"
             >
-              {s.badge && (
-                <span className="absolute right-3 top-3 rounded-full bg-[var(--color-gold-primary)]/20 px-2 py-0.5 text-[0.65rem] text-[var(--color-gold-primary)] md:right-4 md:top-4 md:px-3 md:py-1 md:text-xs">
-                  {s.badge}
-                </span>
-              )}
-              <div className="mb-2 text-2xl md:mb-3 md:text-3xl">{s.icon}</div>
-              <h3 className="mb-1 text-sm font-[family-name:var(--font-heading)] text-[var(--color-gold-light)] md:mb-2 md:text-base">
-                {s.title}
-              </h3>
-              <p className="mb-3 text-xs text-[var(--color-text-secondary)] md:mb-4 md:text-sm">
-                {s.body}
-              </p>
-              <Link
-                href={s.href}
-                className="text-xs font-medium text-[var(--color-gold-primary)] transition-colors hover:text-[var(--color-gold-light)] md:text-sm"
-              >
-                Learn More →
-              </Link>
+              <div className="relative h-48 w-full overflow-hidden">
+                {s.image ? (
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-[var(--color-bg-elevated)] text-4xl opacity-40">
+                    {s.icon}
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-surface)] to-transparent" />
+                {s.badge && (
+                  <span className="absolute right-3 top-3 rounded-full bg-[var(--color-gold-primary)] px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-bg-deepnight)] md:px-3 md:py-1">
+                    {s.badge}
+                  </span>
+                )}
+              </div>
+
+              <div className="flex flex-1 flex-col p-5 md:p-6">
+                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-base font-bold text-[var(--color-gold-light)] transition-colors group-hover:text-[var(--color-gold-primary)] md:text-lg">
+                  {s.title}
+                </h3>
+                <p className="mb-4 flex-1 text-xs leading-relaxed text-[var(--color-text-secondary)] md:text-sm">
+                  {s.body}
+                </p>
+                <Link
+                  href={s.href}
+                  className="text-xs font-bold uppercase tracking-wider text-[var(--color-gold-primary)] transition-colors hover:text-[var(--color-gold-light)] md:text-sm"
+                >
+                  Learn More →
+                </Link>
+              </div>
             </div>
           ))}
         </div>

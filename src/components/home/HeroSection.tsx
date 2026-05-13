@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
 const CLIENT_NAME = process.env.NEXT_PUBLIC_CLIENT_NAME ?? "";
@@ -13,9 +14,18 @@ const WHATSAPP_URL = `https://wa.me/${cleanWhatsappNumber(CLIENT_WHATSAPP)}?text
 
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center">
-      <div className="bg-stars absolute inset-0" />
-      <div className="bg-[var(--color-bg-deepnight)]/75 absolute inset-0" />
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero/ritual-altar.jpg"
+          alt="Traditional Ritual Altar"
+          fill
+          priority
+          className="object-cover opacity-40"
+        />
+        <div className="bg-stars absolute inset-0 opacity-30" />
+      </div>
+      <div className="bg-gradient-to-b from-[var(--color-bg-deepnight)]/40 via-[var(--color-bg-deepnight)]/60 to-[var(--color-bg-deepnight)] absolute inset-0" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 py-16 text-center md:px-6 md:py-0">
         <p className="mb-4 font-[family-name:var(--font-heading)] text-[0.65rem] uppercase tracking-[0.15em] text-[var(--color-gold-primary)] md:mb-6 md:text-[0.75rem] md:tracking-[0.2em]">

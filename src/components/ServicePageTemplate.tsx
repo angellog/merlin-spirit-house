@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import JsonLd from "@/components/JsonLd";
 import { cleanWhatsappNumber } from "@/lib/whatsapp";
@@ -24,6 +25,7 @@ interface ServicePageTemplateProps {
   conversionCopy: { heading: string; body: string };
   icon?: string;
   badge?: string;
+  heroImage?: string;
 }
 
 const CLIENT_WHATSAPP = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP ?? "";
@@ -45,6 +47,7 @@ export default function ServicePageTemplate({
   conversionCopy,
   icon,
   badge,
+  heroImage,
 }: ServicePageTemplateProps) {
   const whatsappUrl = `https://wa.me/${cleanWhatsappNumber(CLIENT_WHATSAPP)}?text=${whatsappPreFill}`;
 
@@ -69,9 +72,20 @@ export default function ServicePageTemplate({
     <>
       <JsonLd data={faqSchema} />
 
-      <section className="relative flex min-h-[60vh] items-center justify-center">
-        <div className="bg-stars absolute inset-0" />
-        <div className="bg-bg-deepnight/75 absolute inset-0" />
+      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0">
+            <Image
+              src={heroImage}
+              alt={seoH1}
+              fill
+              priority
+              className="object-cover opacity-30"
+            />
+          </div>
+        )}
+        <div className="bg-stars absolute inset-0 opacity-20" />
+        <div className="bg-gradient-to-b from-bg-deepnight/60 via-bg-deepnight/80 to-bg-deepnight absolute inset-0" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           {icon && (

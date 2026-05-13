@@ -28,6 +28,7 @@ export default function BindingSpellsPage() {
   return (
     <ServicePageTemplate
       title="Binding Spells"
+      heroImage="/images/hero/ritual-altar.jpg"
       seoH1="Binding Spells That Work — Bind a Lover, Secure Commitment, Tie What Is Yours"
       subheading="What is yours must stay yours. I tie it down so nothing can pull it away."
       leadParagraph={`I am ${clientTitle} ${clientName}, and for over 25 years I have performed binding spells that hold what belongs to you — your lover's heart, your partner's loyalty, your family's safety, your business commitment. Binding is one of the oldest and most powerful spiritual practices on earth. The ancient Greeks called it katadesmos — the tying-down spell carved into lead tablets and buried at sacred crossroads. In West African Vodun, binding is knot magic — the ritual tying of cords that locks a spiritual bond in place so firmly that no outside force can undo it. I was trained in both traditions, and I use them with precision and authority. When a client comes to me because their lover is slipping away, because a rival is stealing their partner, or because someone they trusted is breaking faith, I bind that bond so tight it cannot be broken. That is what binding spells do — they secure, they hold, they tie what must not come undone.`}

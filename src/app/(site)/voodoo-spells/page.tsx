@@ -27,6 +27,7 @@ export default function VoodooSpellsPage() {
   return (
     <ServicePageTemplate
       title="Voodoo Spells"
+      heroImage="/images/services/voodoo-rituals.jpg"
       seoH1="Authentic Voodoo Spells & Vodun Rituals — Power That Commands"
       subheading="Ancient power speaks through the hands of the faithful. I am its vessel."
       leadParagraph={`I am ${clientTitle} ${clientName}, an initiated practitioner of West African Vodun with over 25 years of experience commanding the spirits that ordinary healers cannot reach. Voodoo is not evil — it is the most complete and direct spiritual system on earth for communicating with the unseen world. It encompasses healing, protection, justice, love, and retribution. The Loa, the ancestors, the forces of nature — these spirits are real, and they respond to those who know how to approach them with respect and authority. I was initiated through a lineage that stretches back generations, and I carry the spiritual authority that this work demands. When I perform voodoo, every element has a purpose, every word carries power, and every gesture opens a channel between the visible and invisible worlds. My clients come to me when ordinary methods have failed, and the voodoo I perform delivers results that defy explanation.`}

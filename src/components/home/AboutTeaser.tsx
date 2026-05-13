@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const CLIENT_NAME = process.env.NEXT_PUBLIC_CLIENT_NAME ?? "";
 const CLIENT_TITLE = process.env.NEXT_PUBLIC_CLIENT_TITLE ?? "";
@@ -9,11 +10,14 @@ export default function AboutTeaser() {
     <section className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-12">
         <div className="flex w-full items-center justify-center lg:w-2/5">
-          <div className="aspect-[3/4] w-full max-w-[280px] rounded border-2 border-[var(--color-gold-primary)] bg-[var(--color-bg-surface)] shadow-[0_0_40px_rgba(201,168,76,0.25)] flex items-center justify-center md:max-w-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-dim)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12 opacity-40 md:h-16 md:w-16">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
+          <div className="relative aspect-[3/4] w-full max-w-[280px] overflow-hidden rounded border-2 border-[var(--color-gold-primary)] bg-[var(--color-bg-surface)] shadow-[0_0_40px_rgba(201,168,76,0.25)] md:max-w-sm">
+            <Image
+              src="/images/portrait/prof-ndaula-full.jpg"
+              alt={`${CLIENT_TITLE} ${CLIENT_NAME}`}
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-110"
+              sizes="(max-width: 768px) 280px, 384px"
+            />
           </div>
         </div>
 

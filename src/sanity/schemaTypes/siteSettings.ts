@@ -15,6 +15,8 @@ export default defineType({
     defineField({ name: 'clientTagline', title: 'Client Tagline', type: 'string' }),
     defineField({ name: 'clientOrigin', title: 'Client Origin Story', type: 'array', of: [{ type: 'block' }] }),
     defineField({ name: 'ga4Id', title: 'GA4 ID', type: 'string' }),
+    defineField({ name: 'clientImage', title: 'Client Image (Portrait)', type: 'image', options: { hotspot: true } }),
+    defineField({ name: 'heroBackground', title: 'Hero Background Image', type: 'image', options: { hotspot: true } }),
     defineField({
       name: 'socialLinks',
       title: 'Social Links',

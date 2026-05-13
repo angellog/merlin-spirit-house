@@ -27,6 +27,7 @@ export default function LoveSpellsPage() {
   return (
     <ServicePageTemplate
       title="Love Spells"
+      heroImage="/images/services/love-spells.jpg"
       seoH1="Love Spells That Work — Bring Back Your Lost Lover Today"
       subheading="The heart knows what it wants. I open the path the spirits have closed."
       leadParagraph={`I am ${clientTitle} ${clientName}, and for over 25 years I have reunited thousands of separated lovers, stopped divorces that seemed inevitable, and drawn soulmates together across impossible distances. Love is the most powerful force in the spirit realm, and when the channels of love are blocked by jealousy, curses, or negative energy, the suffering is unbearable. I do not offer false hope or empty promises. I perform the ancestral work that clears those channels and restores the love that belongs to you. Every love spell I cast begins with a spiritual reading — I see the exact obstacles standing between you and the one you love — and I remove them with precision. My clients call me because my work produces results they can see and feel. I am here because the spirits sent me to heal broken hearts.`}
