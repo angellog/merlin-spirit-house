@@ -19,6 +19,7 @@ export default function SiteLayout({
       <ConversionTracking />
       <AnnouncementBar />
       <Navbar />
+      <div className="h-16" /> {/* Spacer for fixed Navbar */}
       <main className="flex-1">{children}</main>
       <Footer />
       <WhatsAppFloat />

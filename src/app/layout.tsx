@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Merlin Spirit House",
   },
   description:
-    "Real voodoo spells, love spell casting, protection rituals & traditional healing. 25+ years experience. WhatsApp consultations available 24/7.",
+    "Real voodoo spells, love spell casting, protection rituals & traditional healing. 13+ years experience. WhatsApp consultations available 24/7.",
   keywords: [
     "voodoo spells",
     "love spells",

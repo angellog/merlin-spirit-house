@@ -30,7 +30,7 @@ export default function LoveSpellsPage() {
       heroImage="/images/services/love-spells.jpg"
       seoH1="Love Spells That Work — Bring Back Your Lost Lover Today"
       subheading="The heart knows what it wants. I open the path the spirits have closed."
-      leadParagraph={`I am ${clientTitle} ${clientName}, and for over 25 years I have reunited thousands of separated lovers, stopped divorces that seemed inevitable, and drawn soulmates together across impossible distances. Love is the most powerful force in the spirit realm, and when the channels of love are blocked by jealousy, curses, or negative energy, the suffering is unbearable. I do not offer false hope or empty promises. I perform the ancestral work that clears those channels and restores the love that belongs to you. Every love spell I cast begins with a spiritual reading — I see the exact obstacles standing between you and the one you love — and I remove them with precision. My clients call me because my work produces results they can see and feel. I am here because the spirits sent me to heal broken hearts.`}
+      leadParagraph={`I am ${clientTitle} ${clientName}, and for over 13 years I have reunited thousands of separated lovers, stopped divorces that seemed inevitable, and drawn soulmates together across impossible distances. Love is the most powerful force in the spirit realm, and when the channels of love are blocked by jealousy, curses, or negative energy, the suffering is unbearable. I do not offer false hope or empty promises. I perform the ancestral work that clears those channels and restores the love that belongs to you. Every love spell I cast begins with a spiritual reading — I see the exact obstacles standing between you and the one you love — and I remove them with precision. My clients call me because my work produces results they can see and feel. I am here because the spirits sent me to heal broken hearts.`}
       whatsappPreFill={`Hello%20${clientTitle}%20${clientName}%2C%20I%20need%20help%20with%20a%20love%20situation`}
       icon="♥"
       badge="Most Requested"
@@ -122,7 +122,7 @@ export default function LoveSpellsPage() {
                 {
                   _type: "span",
                   _key: "ls-faq1-s",
-                  text: "Yes, when performed by an experienced healer with genuine spiritual authority. Love spells are not magic tricks — they are a form of ancestral energy work practiced across West Africa for generations. The key is having a healer who can accurately read your situation and direct the right kind of spiritual force toward it. I have performed thousands of love spells with consistent results over 25 years.",
+                  text: "Yes, when performed by an experienced healer with genuine spiritual authority. Love spells are not magic tricks — they are a form of ancestral energy work practiced across West Africa for generations. The key is having a healer who can accurately read your situation and direct the right kind of spiritual force toward it. I have performed thousands of love spells with consistent results over 13 years.",
                   marks: [],
                 },
               ],

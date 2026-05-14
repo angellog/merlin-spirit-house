@@ -8,7 +8,7 @@ export function generateMetadata(): Metadata {
   return {
     title: "Binding Spells That Work Fast | Bind a Lover, Secure Commitment | Prof. Ndaula",
     description:
-      "Powerful binding spells cast by Prof. Ndaula — 25 years experience. Bind a lover to you, prevent infidelity, secure commitment and loyalty. Free consultation. WhatsApp +256788546704.",
+      "Powerful binding spells cast by Prof. Ndaula — 13 years experience. Bind a lover to you, prevent infidelity, secure commitment and loyalty. Free consultation. WhatsApp +256788546704.",
     keywords: [
       "binding spells that work",
       "bind a lover spell",
@@ -31,7 +31,7 @@ export default function BindingSpellsPage() {
       heroImage="/images/hero/ritual-altar.jpg"
       seoH1="Binding Spells That Work — Bind a Lover, Secure Commitment, Tie What Is Yours"
       subheading="What is yours must stay yours. I tie it down so nothing can pull it away."
-      leadParagraph={`I am ${clientTitle} ${clientName}, and for over 25 years I have performed binding spells that hold what belongs to you — your lover's heart, your partner's loyalty, your family's safety, your business commitment. Binding is one of the oldest and most powerful spiritual practices on earth. The ancient Greeks called it katadesmos — the tying-down spell carved into lead tablets and buried at sacred crossroads. In West African Vodun, binding is knot magic — the ritual tying of cords that locks a spiritual bond in place so firmly that no outside force can undo it. I was trained in both traditions, and I use them with precision and authority. When a client comes to me because their lover is slipping away, because a rival is stealing their partner, or because someone they trusted is breaking faith, I bind that bond so tight it cannot be broken. That is what binding spells do — they secure, they hold, they tie what must not come undone.`}
+      leadParagraph={`I am ${clientTitle} ${clientName}, and for over 13 years I have performed binding spells that hold what belongs to you — your lover's heart, your partner's loyalty, your family's safety, your business commitment. Binding is one of the oldest and most powerful spiritual practices on earth. The ancient Greeks called it katadesmos — the tying-down spell carved into lead tablets and buried at sacred crossroads. In West African Vodun, binding is knot magic — the ritual tying of cords that locks a spiritual bond in place so firmly that no outside force can undo it. I was trained in both traditions, and I use them with precision and authority. When a client comes to me because their lover is slipping away, because a rival is stealing their partner, or because someone they trusted is breaking faith, I bind that bond so tight it cannot be broken. That is what binding spells do — they secure, they hold, they tie what must not come undone.`}
       whatsappPreFill={`Hello%20${clientTitle}%20${clientName}%2C%20I%20need%20a%20binding%20spell%20to%20secure%20my%20relationship`}
       icon="⛓"
       badge="Most Requested"
@@ -58,7 +58,7 @@ export default function BindingSpellsPage() {
             {
               _type: "span",
               _key: "bs-wi-s2",
-              text: `When I perform a binding spell, the work begins with a spiritual reading to determine the exact nature of the bond and the forces threatening to break it. I do not cast a generic binding — every situation requires a specific type of tie. A lover-binding uses different herbs, prayers, and ritual elements than an enemy-binding or a business-binding. In the West African Vodun knot magic tradition, I select the cord material — certain fibers carry specific spiritual properties — and I tie the knots at precise ritual moments, invoking the ancestral spirits with each one. The defixio tradition influences my work as well: I inscribe the binding intention onto sacred materials that anchor the spell in the physical and spiritual realms simultaneously. The result is a bond that holds with the weight of ancestral authority behind it. This is not guesswork or superstition — it is a disciplined spiritual technology that has produced consistent results for my clients for over 25 years.`,
+              text: `When I perform a binding spell, the work begins with a spiritual reading to determine the exact nature of the bond and the forces threatening to break it. I do not cast a generic binding — every situation requires a specific type of tie. A lover-binding uses different herbs, prayers, and ritual elements than an enemy-binding or a business-binding. In the West African Vodun knot magic tradition, I select the cord material — certain fibers carry specific spiritual properties — and I tie the knots at precise ritual moments, invoking the ancestral spirits with each one. The defixio tradition influences my work as well: I inscribe the binding intention onto sacred materials that anchor the spell in the physical and spiritual realms simultaneously. The result is a bond that holds with the weight of ancestral authority behind it. This is not guesswork or superstition — it is a disciplined spiritual technology that has produced consistent results for my clients for over 13 years.`,
               marks: [],
             },
           ],
@@ -123,7 +123,7 @@ export default function BindingSpellsPage() {
                 {
                   _type: "span",
                   _key: "bs-faq1-s",
-                  text: "Yes. Binding spells are one of the most documented and practiced forms of spiritual work across human history — from the ancient Greek katadesmos tablets found in archaeological sites across the Mediterranean to the knot magic traditions of West African Vodun practiced for centuries. When performed by a healer with genuine spiritual authority and deep knowledge of the binding traditions, the results are consistent and verifiable. I have performed thousands of binding spells with confirmed results over 25 years of practice.",
+                  text: "Yes. Binding spells are one of the most documented and practiced forms of spiritual work across human history — from the ancient Greek katadesmos tablets found in archaeological sites across the Mediterranean to the knot magic traditions of West African Vodun practiced for centuries. When performed by a healer with genuine spiritual authority and deep knowledge of the binding traditions, the results are consistent and verifiable. I have performed thousands of binding spells with confirmed results over 13 years of practice.",
                   marks: [],
                 },
               ],

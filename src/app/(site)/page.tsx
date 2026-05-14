@@ -1,7 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import SocialProofStrip from "@/components/home/SocialProofStrip";
 import AboutTeaser from "@/components/home/AboutTeaser";
-import VideoIntroduction from "@/components/home/VideoIntroduction";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import FeaturedTestimonials from "@/components/home/FeaturedTestimonials";
@@ -56,7 +55,7 @@ export default function HomePage() {
     "@type": "Person",
     name: `${clientTitle} ${clientName}`,
     jobTitle: "Traditional Spiritual Healer & Voodoo Practitioner",
-    description: `Born into a lineage of traditional healers, ${clientTitle} ${clientName} has practiced ancestral spiritual healing for over 25 years, serving international clients from Uganda, Kenya, UK, USA, Canada, South Africa, and Australia.`,
+    description: `Born into a lineage of traditional healers, ${clientTitle} ${clientName} has practiced ancestral spiritual healing for over 13 years, serving international clients from Uganda, Kenya, UK, USA, Canada, South Africa, and Australia.`,
     url: `${clientDomain}/about/`,
     image: `${clientDomain}/opengraph-image.png`,
     worksFor: {
@@ -95,7 +94,7 @@ export default function HomePage() {
         name: "Do voodoo spells really work?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: `In my 25 years of practice, I have witnessed remarkable transformations. Voodoo is not a parlor trick — it is an ancient spiritual tradition rooted in West African Vodun. When performed by an experienced practitioner with genuine ancestral connection, the results speak for themselves.`,
+          text: `In my 13 years of practice, I have witnessed remarkable transformations. Voodoo is not a parlor trick — it is an ancient spiritual tradition rooted in West African Vodun. When performed by an experienced practitioner with genuine ancestral connection, the results speak for themselves.`,
         },
       },
       {
@@ -149,7 +148,6 @@ export default function HomePage() {
       <HeroSection />
       <SocialProofStrip />
       <AboutTeaser />
-      <VideoIntroduction />
       <ServicesGrid />
       <HowItWorks />
       <FeaturedTestimonials />

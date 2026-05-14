@@ -74,7 +74,7 @@ async function main() {
         clientWhatsapp: "+256788546704",
         clientEmail: "contact@merlinspirithouse.com",
         clientLocation: "Kampala, Uganda",
-        clientYears: 25,
+        clientYears: 13,
         clientDomain: "merlinspirithouse.com",
         clientTagline: "Ancient Power. Real Results.",
         clientOrigin: [
@@ -159,7 +159,7 @@ async function main() {
         bio: [
           pt(
             "bio-1",
-            `Born into a lineage of traditional healers stretching back generations, ${T} ${N} received ancestral gifts that most cannot learn from books. Over 25 years, clients from Uganda, Kenya, South Africa, the UK, the USA, and beyond have sought guidance — and found it.`,
+            `Born into a lineage of traditional healers stretching back generations, ${T} ${N} received ancestral gifts that most cannot learn from books. Over 13 years, clients from Uganda, Kenya, South Africa, the UK, the USA, and beyond have sought guidance — and found it.`,
           ),
           pt(
             "bio-2",

@@ -9,7 +9,7 @@ import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
 const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "Ndaula";
 const clientTitle = process.env.NEXT_PUBLIC_CLIENT_TITLE || "Prof.";
-const clientYears = process.env.NEXT_PUBLIC_CLIENT_YEARS || "25";
+const clientYears = process.env.NEXT_PUBLIC_CLIENT_YEARS || "13";
 const clientWhatsapp = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP || "+256788546704";
 const clientDomain = process.env.NEXT_PUBLIC_SITE_URL || "https://merlinspirithouse.com";
 

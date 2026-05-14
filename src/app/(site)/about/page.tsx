@@ -5,7 +5,7 @@ import JsonLd from "@/components/JsonLd";
 
 const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "Ndaula";
 const clientTitle = process.env.NEXT_PUBLIC_CLIENT_TITLE || "Prof.";
-const clientYears = process.env.NEXT_PUBLIC_CLIENT_YEARS || "25";
+const clientYears = process.env.NEXT_PUBLIC_CLIENT_YEARS || "13";
 const clientWhatsapp = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP || "+256788546704";
 const clientLocation = process.env.NEXT_PUBLIC_CLIENT_LOCATION || "Kampala, Uganda";
 const clientDomain = process.env.NEXT_PUBLIC_SITE_URL || "https://merlinspirithouse.com";
@@ -28,7 +28,7 @@ export default function AboutPage() {
     "@type": "Person",
     name: `${clientTitle} ${clientName}`,
     jobTitle: "Traditional Spiritual Healer & Voodoo Practitioner",
-    description: `Born into a lineage of traditional healers, ${clientTitle} ${clientName} has practiced ancestral spiritual healing for over 25 years, serving international clients from Uganda, Kenya, UK, USA, Canada, South Africa, and Australia.`,
+    description: `Born into a lineage of traditional healers, ${clientTitle} ${clientName} has practiced ancestral spiritual healing for over 13 years, serving international clients from Uganda, Kenya, UK, USA, Canada, South Africa, and Australia.`,
     url: `${clientDomain}/about/`,
     worksFor: {
       "@type": "Organization",
@@ -90,18 +90,26 @@ export default function AboutPage() {
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
-            <div className="flex justify-center">
-              <div className="relative">
-                <div className="relative h-[600px] w-full max-w-md rounded-2xl border-2 border-gold-primary/30 overflow-hidden shadow-[0_0_50px_rgba(201,168,76,0.2)]">
-                  <Image
-                    src="/images/portrait/prof-ndaula-full.jpg"
-                    alt={`${clientTitle} ${clientName}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 448px"
-                  />
+            <div className="flex justify-center lg:sticky lg:top-24">
+              <div className="relative w-full max-w-md">
+                <div className="relative aspect-[3/4] w-full rounded-2xl border-2 border-gold-primary/30 bg-black overflow-hidden shadow-[0_0_50px_rgba(201,168,76,0.2)]">
+                  <video
+                    className="h-full w-full object-cover"
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster="/images/portrait/prof-ndaula-full.jpg"
+                  >
+                    <source src="/videos/prof-ndaula-final.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
                 <div className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border-2 border-gold-primary/20 -z-10" />
+                <p className="mt-4 text-center text-xs text-text-muted italic">
+                  Personal introduction from {clientTitle} {clientName}
+                </p>
               </div>
             </div>
 
