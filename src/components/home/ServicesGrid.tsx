@@ -82,7 +82,7 @@ export default function ServicesGrid() {
           {services.map((s) => (
             <div
               key={s.href}
-              className="group relative flex flex-col overflow-hidden rounded-lg border border-gold-dim bg-surface transition-all hover:border-gold-primary hover:shadow-[0_0_25px_rgba(201,168,76,0.15)]"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-elevated/40 backdrop-blur-sm transition-all hover:border-gold-primary/30 hover:shadow-2xl hover:shadow-gold-primary/10"
             >
               <div className="relative h-48 w-full overflow-hidden">
                 {s.image ? (

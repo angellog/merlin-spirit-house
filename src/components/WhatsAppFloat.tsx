@@ -12,7 +12,7 @@ export default function WhatsAppFloat() {
   if (!whatsapp) return null;
 
   return (
-    <div className="fixed right-4 bottom-[180px] md:bottom-[28px] md:right-[28px]" style={{ zIndex: 9999 }}>
+    <div className="fixed right-4 bottom-[135px] md:bottom-[28px] md:right-[28px]" style={{ zIndex: 9999 }}>
       {showTooltip && (
         <div className="absolute right-[72px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-[family-name:var(--font-body)] text-[#0A0A12] shadow-lg hidden md:block"
           style={{ background: "var(--color-gold-primary)" }}

@@ -69,6 +69,7 @@
     font-size: clamp(1.1rem, 2.5vw, 1.6rem);
     font-weight: 600;
     color: var(--color-gold-light);
+    line-height: 1.4;
   }
 
   p {
@@ -137,6 +138,11 @@
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
   }
 
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
   .animate-bounce-slow {
     animation: bounce-slow 2s ease-in-out infinite;
   }
@@ -147,5 +153,9 @@
 
   .animate-pulse-whatsapp {
     animation: pulse-whatsapp 2.5s infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
   }
 }

@@ -68,7 +68,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="name"
-          className="mb-2 block text-sm font-medium text-text-primary"
+          className="mb-2 block text-xs font-semibold uppercase tracking-widest text-gold-dim"
         >
           Name
         </label>
@@ -76,11 +76,11 @@ export default function ContactForm() {
           id="name"
           type="text"
           {...register("name")}
-          className="w-full rounded-xl border border-white/10 bg-[var(--color-surface-alt)] px-4 py-3 text-sm text-[var(--color-foreground)] placeholder:text-text-muted transition-colors focus:border-gold-primary focus:outline-none focus:ring-1 focus:ring-gold-primary"
+          className="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-base text-text-primary placeholder:text-text-muted transition-all focus:border-gold-primary focus:outline-none focus:ring-1 focus:ring-gold-primary"
           placeholder="Your name"
         />
         {errors.name && (
-          <p className="mt-1 text-xs text-red-400">{errors.name.message}</p>
+          <p className="mt-1 text-xs text-crimson">{errors.name.message}</p>
         )}
       </div>
 
@@ -88,14 +88,14 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="contactMethod"
-            className="mb-2 block text-sm font-medium text-text-primary"
+            className="mb-2 block text-xs font-semibold uppercase tracking-widest text-gold-dim"
           >
             Contact Method
           </label>
           <select
             id="contactMethod"
             {...register("contactMethod")}
-            className="w-full rounded-xl border border-white/10 bg-[var(--color-surface-alt)] px-4 py-3 text-sm text-[var(--color-foreground)] transition-colors focus:border-gold-primary focus:outline-none focus:ring-1 focus:ring-gold-primary"
+            className="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-base text-text-primary transition-all focus:border-gold-primary focus:outline-none focus:ring-1 focus:ring-gold-primary appearance-none"
           >
             <option value="whatsapp">WhatsApp</option>
             <option value="email">Email</option>
@@ -105,7 +105,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="contactValue"
-            className="mb-2 block text-sm font-medium text-text-primary"
+            className="mb-2 block text-xs font-semibold uppercase tracking-widest text-gold-dim"
           >
             Your Number / Email
           </label>
@@ -113,11 +113,11 @@ export default function ContactForm() {
             id="contactValue"
             type="text"
             {...register("contactValue")}
-            className="w-full rounded-xl border border-white/10 bg-[var(--color-surface-alt)] px-4 py-3 text-sm text-[var(--color-foreground)] placeholder:text-text-muted transition-colors focus:border-gold-primary focus:outline-none focus:ring-1 focus:ring-gold-primary"
-            placeholder="Your WhatsApp number or email"
+            className="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-base text-text-primary placeholder:text-text-muted transition-all focus:border-gold-primary focus:outline-none focus:ring-1 focus:ring-gold-primary"
+            placeholder="e.g. +256..."
           />
           {errors.contactValue && (
-            <p className="mt-1 text-xs text-red-400">
+            <p className="mt-1 text-xs text-crimson">
               {errors.contactValue.message}
             </p>
           )}
@@ -127,19 +127,19 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="situation"
-          className="mb-2 block text-sm font-medium text-text-primary"
+          className="mb-2 block text-xs font-semibold uppercase tracking-widest text-gold-dim"
         >
-          Briefly describe your situation
+          Describe Your Situation
         </label>
         <textarea
           id="situation"
           rows={5}
           {...register("situation")}
-          className="w-full rounded-xl border border-white/10 bg-[var(--color-surface-alt)] px-4 py-3 text-sm text-[var(--color-foreground)] placeholder:text-text-muted transition-colors focus:border-gold-primary focus:outline-none focus:ring-1 focus:ring-gold-primary"
-          placeholder="Tell me about your situation and what kind of help you are seeking..."
+          className="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-base text-text-primary placeholder:text-text-muted transition-all focus:border-gold-primary focus:outline-none focus:ring-1 focus:ring-gold-primary resize-none"
+          placeholder="How can I help you today?"
         />
         {errors.situation && (
-          <p className="mt-1 text-xs text-red-400">{errors.situation.message}</p>
+          <p className="mt-1 text-xs text-crimson">{errors.situation.message}</p>
         )}
       </div>
 
@@ -157,9 +157,12 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-gold-primary to-gold-light px-8 font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-[#0A0A12] transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+        className="group relative overflow-hidden flex w-full items-center justify-center rounded-full bg-gold-primary px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-widest text-deepnight transition-all hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {isSubmitting ? "Sending..." : "Send Message"}
+        <span className="relative z-10">
+          {isSubmitting ? "Sending..." : "Submit to the Healer"}
+        </span>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer" />
       </button>
     </form>
   );

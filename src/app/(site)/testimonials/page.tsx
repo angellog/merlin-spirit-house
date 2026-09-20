@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import ReviewForm from "@/components/ReviewForm";
 
 const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "Ndaula";
 const clientTitle = process.env.NEXT_PUBLIC_CLIENT_TITLE || "Prof.";
@@ -132,8 +133,16 @@ export default function TestimonialsPage() {
                 key={i}
                 className="bg-surface border-l-3 border-l-gold-primary rounded-r-lg p-8"
               >
-                <span className="text-4xl text-gold-primary font-[family-name:var(--font-serif)] leading-none">&ldquo;</span>
-                <p className="mt-2 font-[family-name:var(--font-serif)] italic text-lg leading-relaxed text-text-primary">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="text-4xl text-gold-primary font-[family-name:var(--font-serif)] leading-none">&ldquo;</span>
+                  <div className="flex items-center gap-1 rounded-full bg-success/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-success border border-success/20">
+                    <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    Verified Client
+                  </div>
+                </div>
+                <p className="font-[family-name:var(--font-serif)] italic text-lg leading-relaxed text-text-primary">
                   {t.quote}
                 </p>
                 <div className="mt-6 flex items-center justify-between">
@@ -152,6 +161,12 @@ export default function TestimonialsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="mx-auto max-w-2xl px-6">
+          <ReviewForm />
         </div>
       </section>
 

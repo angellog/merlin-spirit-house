@@ -11,19 +11,22 @@ export default function JivochatProvider() {
   return (
     <>
       <style>{`
+        /* Mobile Jivochat Adjustment */
         @media (max-width: 767px) {
-          .jivo-btn {
-            bottom: 116px !important;
-            right: 16px !important;
+          #jivo-iframe-container {
+            bottom: 70px !important;
+            right: 10px !important;
           }
-          .jivo-btn-label {
-            display: none !important;
+          .jivo-btn {
+            bottom: 70px !important;
+            right: 10px !important;
           }
         }
+        /* Desktop Jivochat Adjustment */
         @media (min-width: 768px) {
-          .jivo-btn {
-            bottom: 28px !important;
-            right: 96px !important;
+          #jivo-iframe-container {
+            bottom: 20px !important;
+            right: 80px !important;
           }
         }
       `}</style>

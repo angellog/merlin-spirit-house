@@ -17,9 +17,11 @@ export default function SiteLayout({
     <div className="flex flex-col min-h-full">
       <Analytics />
       <ConversionTracking />
-      <AnnouncementBar />
-      <Navbar />
-      <div className="h-16" /> {/* Spacer for fixed Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-[10000] bg-deepnight shadow-2xl">
+        <AnnouncementBar />
+        <Navbar />
+      </header>
+      <div className="h-[88px] md:h-[100px]" /> {/* Spacer for combined fixed Header (h-8/9 + h-14/16) */}
       <main className="flex-1">{children}</main>
       <Footer />
       <WhatsAppFloat />

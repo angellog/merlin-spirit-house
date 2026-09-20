@@ -42,28 +42,28 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-0 md:flex-row md:items-center md:gap-8">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-8">
           {steps.map((step, i) => (
-            <div key={step.number} className="flex flex-1">
-              <div className="flex-1">
-                <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-0">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-gold-primary bg-deepnight font-[family-name:var(--font-heading)] text-lg text-gold-primary md:mb-2 md:h-14 md:w-14 md:text-2xl">
-                    {step.number}
-                  </div>
-                  <div className="md:text-center">
-                    <h3 className="font-[family-name:var(--font-heading)] text-base text-text-primary md:mb-2 md:text-lg">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs text-text-secondary md:text-sm">
-                      {step.desc}
-                    </p>
-                  </div>
+            <div key={step.number} className="relative flex flex-1 flex-col">
+              <div className="flex items-center gap-6 md:flex-col md:items-center md:gap-0">
+                <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold-primary bg-deepnight font-[family-name:var(--font-heading)] text-xl text-gold-primary md:mb-4 md:h-16 md:w-16 md:text-2xl shadow-[0_0_20px_rgba(201,168,76,0.2)]">
+                  {step.number}
+                </div>
+                <div className="md:text-center">
+                  <h3 className="font-[family-name:var(--font-heading)] text-lg text-text-primary md:mb-2 md:text-xl">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-text-secondary md:text-base">
+                    {step.desc}
+                  </p>
                 </div>
               </div>
               {i < steps.length - 1 && (
                 <>
-                  <div className="ml-5 my-2 h-6 w-px bg-gold-dim md:hidden" />
-                  <div className="hidden h-px w-12 self-center border-t-2 border-dashed border-gold-dim md:block" />
+                  {/* Mobile Vertical Line */}
+                  <div className="absolute left-7 top-14 h-8 w-px bg-gold-dim md:hidden" />
+                  {/* Desktop Horizontal Line */}
+                  <div className="hidden absolute left-[calc(50%+32px)] top-8 w-[calc(100%-64px)] border-t-2 border-dashed border-gold-dim md:block" />
                 </>
               )}
             </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import JsonLd from "@/components/JsonLd";
+import ReviewForm from "@/components/ReviewForm";
 import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
 interface ServicePageTemplateProps {
@@ -98,10 +99,10 @@ export default function ServicePageTemplate({
             {subheading}
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
             <Link
               href="/consultation/"
-              className="inline-block bg-gradient-to-r from-gold-primary to-gold-light px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-deepnight shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)]"
+              className="inline-block bg-gradient-to-r from-gold-primary to-gold-light px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-deepnight shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)] w-full sm:w-auto"
             >
               ✦ Begin Your Consultation
             </Link>
@@ -109,7 +110,7 @@ export default function ServicePageTemplate({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-whatsapp px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-shadow hover:shadow-[0_0_20px_rgba(37,211,102,0.4)]"
+              className="inline-flex items-center justify-center gap-2 bg-whatsapp px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-shadow hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] w-full sm:w-auto"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,12 +124,14 @@ export default function ServicePageTemplate({
             </a>
           </div>
         </div>
+      </section>
 
-        {badge && (
-          <span className="absolute top-8 right-8 z-10 bg-gradient-to-r from-gold-primary to-gold-light px-4 py-2 font-[family-name:var(--font-heading)] text-xs font-bold uppercase tracking-wider text-bg-deepnight shadow-[0_0_12px_rgba(201,168,76,0.5)]">
-            {badge}
-          </span>
-        )}
+      <section className="py-16 px-6">
+        <div className="mx-auto max-w-4xl">
+          <p className="font-[family-name:var(--font-serif)] text-[clamp(1.05rem,3vw,1.15rem)] leading-[1.85] text-text-primary">
+            {leadParagraph}
+          </p>
+        </div>
       </section>
 
       <section className="py-16 px-6">
@@ -218,10 +221,18 @@ export default function ServicePageTemplate({
                   {t.quote}
                 </p>
                 <div className="mt-4">
-                  <span className="font-medium text-text-primary">
-                    {t.name}
-                  </span>
-                  <span className="ml-2 text-sm text-text-muted">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-medium text-text-primary">
+                      {t.name}
+                    </span>
+                    <div className="flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-success">
+                      <svg className="h-2.5 w-2.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Verified
+                    </div>
+                  </div>
+                  <span className="text-sm text-text-muted">
                     {t.location}
                   </span>
                   <div className="mt-1 text-sm text-gold-primary">
@@ -232,6 +243,12 @@ export default function ServicePageTemplate({
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6">
+        <div className="mx-auto max-w-2xl">
+          <ReviewForm />
         </div>
       </section>
 

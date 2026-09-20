@@ -22,8 +22,8 @@ export default function VideoIntroduction() {
   };
 
   return (
-    <section className="bg-surface py-16 md:py-24">
-      <div className="mx-auto max-w-5xl px-6">
+    <section className="bg-surface px-4 py-16 md:px-6 md:py-24">
+      <div className="mx-auto max-w-5xl px-0 md:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-primary">

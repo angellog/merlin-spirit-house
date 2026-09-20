@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import GlobalAuthority from "@/components/home/GlobalAuthority";
 import SocialProofStrip from "@/components/home/SocialProofStrip";
 import AboutTeaser from "@/components/home/AboutTeaser";
 import ServicesGrid from "@/components/home/ServicesGrid";
@@ -146,6 +147,7 @@ export default function HomePage() {
       <JsonLd data={personSchema} />
       <JsonLd data={faqSchema} />
       <HeroSection />
+      <GlobalAuthority />
       <SocialProofStrip />
       <AboutTeaser />
       <ServicesGrid />
