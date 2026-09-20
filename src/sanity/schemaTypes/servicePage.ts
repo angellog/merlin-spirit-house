@@ -29,6 +29,8 @@ export default defineType({
         defineField({ name: 'body', title: 'Body', type: 'string' }),
       ],
     }),
+    defineField({ name: 'processSteps', title: 'Process Steps', type: 'array', of: [{ type: 'string' }] }),
+    defineField({ name: 'relatedServices', title: 'Related Services', type: 'array', of: [{ type: 'reference', to: [{ type: 'servicePage' }] }] }),
     defineField({ name: 'sortOrder', title: 'Sort Order', type: 'number' }),
   ],
 })

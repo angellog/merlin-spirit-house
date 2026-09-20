@@ -2,9 +2,11 @@
 
 import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
-export default function MobileStickyBar() {
-  const whatsapp = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP || "";
+interface MobileStickyBarProps {
+  clientWhatsapp: string;
+}
 
+export default function MobileStickyBar({ clientWhatsapp }: MobileStickyBarProps) {
   const handleLiveChat = () => {
     if (typeof window !== "undefined" && window.jivo_api) {
       window.jivo_api.open();
@@ -21,7 +23,7 @@ export default function MobileStickyBar() {
       </span>
       <div className="flex gap-2">
         <a
-          href={`https://wa.me/${cleanWhatsappNumber(whatsapp)}`}
+          href={`https://wa.me/${cleanWhatsappNumber(clientWhatsapp)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[0.8rem] font-semibold text-white transition-all hover:brightness-110"

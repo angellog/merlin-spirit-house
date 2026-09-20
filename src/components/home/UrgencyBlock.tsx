@@ -1,23 +1,25 @@
 import Link from "next/link";
 import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
-const CLIENT_WHATSAPP = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP ?? "";
-const CLIENT_TITLE = process.env.NEXT_PUBLIC_CLIENT_TITLE ?? "";
-const CLIENT_NAME = process.env.NEXT_PUBLIC_CLIENT_NAME ?? "";
+interface UrgencyBlockProps {
+  clientTitle: string;
+  clientName: string;
+  clientWhatsapp: string;
+}
 
-const WHATSAPP_URL = `https://wa.me/${cleanWhatsappNumber(CLIENT_WHATSAPP)}?text=${encodeURIComponent(
-  `Hello ${CLIENT_TITLE} ${CLIENT_NAME}, I need your help.`
-)}`;
+export default function UrgencyBlock({ clientTitle, clientName, clientWhatsapp }: UrgencyBlockProps) {
+  const WHATSAPP_URL = `https://wa.me/${cleanWhatsappNumber(clientWhatsapp)}?text=${encodeURIComponent(
+    `Hello ${clientTitle} ${clientName}, I need your help.`
+  )}`;
 
-export default function UrgencyBlock() {
   return (
-    <section className="bg-gradient-to-r from-crimson to-[#3D0C0C] px-4 py-12 md:px-6 md:py-16">
+    <section className="bg-gradient-to-r from-[var(--color-crimson)] to-[#3D0C0C] px-4 py-12 md:px-6 md:py-16">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="mb-4 font-[family-name:var(--font-heading)] text-2xl text-gold-primary md:mb-6 md:text-4xl">
+        <h2 className="mb-4 font-[family-name:var(--font-heading)] text-2xl text-[var(--color-gold-primary)] md:mb-6 md:text-4xl">
           The Longer You Wait, the Harder It Gets
         </h2>
 
-        <p className="mb-6 text-sm text-text-primary md:mb-8 md:text-base">
+        <p className="mb-6 text-sm text-[var(--color-text-primary)] md:mb-8 md:text-base">
           Spiritual problems do not resolve on their own. Every day you delay,
           the blockage deepens. Whatever you are facing — it is better to act
           now than to wish you had.
@@ -26,7 +28,7 @@ export default function UrgencyBlock() {
         <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:justify-center md:gap-4">
           <Link
             href="/consultation/"
-            className="inline-block bg-gradient-to-r from-gold-primary to-gold-light px-6 py-3.5 font-[family-name:var(--font-heading)] text-[0.85rem] font-bold uppercase tracking-wider text-deepnight shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)] md:px-8 md:py-4 md:text-sm"
+            className="inline-block bg-gradient-to-r from-[var(--color-gold-primary)] to-[var(--color-gold-light)] px-6 py-3.5 font-[family-name:var(--font-heading)] text-[0.85rem] font-bold uppercase tracking-wider text-[var(--color-bg-deepnight)] shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)] md:px-8 md:py-4 md:text-sm"
           >
             Book Free Consultation
           </Link>
@@ -48,7 +50,7 @@ export default function UrgencyBlock() {
           </a>
         </div>
 
-        <p className="mt-4 text-center text-[0.7rem] text-text-muted md:mt-6 md:text-xs">
+        <p className="mt-4 text-center text-[0.7rem] text-[var(--color-text-muted)] md:mt-6 md:text-xs">
           Available 24 hours a day, 7 days a week. All consultations are
           strictly private.
         </p>

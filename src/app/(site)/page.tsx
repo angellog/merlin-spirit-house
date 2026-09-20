@@ -1,5 +1,4 @@
 import HeroSection from "@/components/home/HeroSection";
-import GlobalAuthority from "@/components/home/GlobalAuthority";
 import SocialProofStrip from "@/components/home/SocialProofStrip";
 import AboutTeaser from "@/components/home/AboutTeaser";
 import ServicesGrid from "@/components/home/ServicesGrid";
@@ -8,22 +7,63 @@ import FeaturedTestimonials from "@/components/home/FeaturedTestimonials";
 import UrgencyBlock from "@/components/home/UrgencyBlock";
 import FAQPreview from "@/components/home/FAQPreview";
 import JsonLd from "@/components/JsonLd";
+import { getResolvedSiteSettings, getServicePages, getFeaturedTestimonials, getGlobalFaqs, getTestimonials, getPerson } from "@/sanity/lib/fetch";
+import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
-const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "Ndaula";
-const clientTitle = process.env.NEXT_PUBLIC_CLIENT_TITLE || "Prof.";
-const clientWhatsapp = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP || "+256788546704";
-const clientLocation = process.env.NEXT_PUBLIC_CLIENT_LOCATION || "Kampala, Uganda";
-const clientDomain = process.env.NEXT_PUBLIC_SITE_URL || "https://merlinspirithouse.com";
+export default async function HomePage() {
+  const [settings, services, testimonials, featuredTestimonials, globalFaqs, person] = await Promise.all([
+    getResolvedSiteSettings(),
+    getServicePages(),
+    getTestimonials(),
+    getFeaturedTestimonials(),
+    getGlobalFaqs(),
+    getPerson(),
+  ]);
 
-export default function HomePage() {
+  const waNumber = cleanWhatsappNumber(settings.clientWhatsapp);
+
+  const socialProofSnippets = (testimonials || []).slice(0, 6).map((t) => ({
+    stars: "★★★★★",
+    text: t.quote.length > 60 ? t.quote.slice(0, 57) + "..." : t.quote,
+    name: t.name,
+    location: t.location || "",
+  }));
+
+  const serviceCards = (services || []).map((s) => ({
+    icon: s.icon || "✦",
+    title: s.title,
+    body: s.subheading || "",
+    href: `/${s.slug.current}`,
+    badge: s.badge,
+  }));
+
+  const howItWorksSteps = settings.howItWorksSteps.map((step, i) => ({
+    number: `0${i + 1}`,
+    title: step.title,
+    desc: step.description,
+  }));
+
+  const featuredT = (featuredTestimonials || []).slice(0, 3).map((t) => ({
+    quote: t.quote,
+    name: t.name,
+    location: t.location || "",
+  }));
+
+  const faqItems = (globalFaqs || []).slice(0, 6).map((f) => ({
+    question: f.question,
+    answer: f.answer
+      ?.map((block: any) => block.children?.map((c: any) => c.text).join("") ?? "")
+      .join(" ") || "",
+  }));
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Merlin Spirit House",
     description: "Traditional spiritual healer and voodoo practitioner offering love spells, curse removal, protection rituals, and ancestral healing. Serving clients worldwide.",
-    url: clientDomain,
-    telephone: clientWhatsapp,
-    email: "contact@merlinspirithouse.com",
+    url: settings.clientDomain,
+    telephone: settings.clientWhatsapp,
+    email: settings.clientEmail,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Kampala",
@@ -31,53 +71,36 @@ export default function HomePage() {
     },
     openingHours: "Mo-Su 00:00-23:59",
     priceRange: "$$",
-    image: `${clientDomain}/opengraph-image.png`,
+    image: `${settings.clientDomain}/opengraph-image.png`,
     sameAs: [
-      `https://wa.me/${clientWhatsapp.replace(/[^0-9]/g, "")}`,
+      `https://wa.me/${waNumber}`,
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Spiritual Services",
-      itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Love Spells" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Binding Spells" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Voodoo Rituals" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Money Spells" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Protection Spells" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Curse Removal" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Traditional Healing" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Spirit Blessings" } },
-      ],
+      itemListElement: (services || []).map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.title },
+      })),
     },
   };
 
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: `${clientTitle} ${clientName}`,
+    name: `${settings.clientTitle} ${settings.clientName}`,
     jobTitle: "Traditional Spiritual Healer & Voodoo Practitioner",
-    description: `Born into a lineage of traditional healers, ${clientTitle} ${clientName} has practiced ancestral spiritual healing for over 13 years, serving international clients from Uganda, Kenya, UK, USA, Canada, South Africa, and Australia.`,
-    url: `${clientDomain}/about/`,
-    image: `${clientDomain}/opengraph-image.png`,
+    description: `Born into a lineage of traditional healers, ${settings.clientTitle} ${settings.clientName} has practiced ancestral spiritual healing for over ${settings.clientYears} years, serving international clients from Uganda, Kenya, UK, USA, Canada, South Africa, and Australia.`,
+    url: `${settings.clientDomain}/about/`,
+    image: `${settings.clientDomain}/opengraph-image.png`,
     worksFor: {
       "@type": "Organization",
       name: "Merlin Spirit House",
-      url: clientDomain,
+      url: settings.clientDomain,
     },
-    knowsAbout: [
-      "Love Spells",
-      "Binding Spells",
-      "Voodoo Rituals",
-      "Money Spells",
-      "Protection Spells",
-      "Curse Removal",
-      "Traditional African Healing",
-      "Spirit Blessings",
-      "Ancestral Spiritual Work",
-      "West African Vodun",
-    ],
+    knowsAbout: (services || []).map((s) => s.title).concat(["Ancestral Spiritual Work", "West African Vodun"]),
     sameAs: [
-      `https://wa.me/${clientWhatsapp.replace(/[^0-9]/g, "")}`,
+      `https://wa.me/${waNumber}`,
     ],
     address: {
       "@type": "PostalAddress",
@@ -89,56 +112,14 @@ export default function HomePage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Do voodoo spells really work?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `In my 13 years of practice, I have witnessed remarkable transformations. Voodoo is not a parlor trick — it is an ancient spiritual tradition rooted in West African Vodun. When performed by an experienced practitioner with genuine ancestral connection, the results speak for themselves.`,
-        },
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
       },
-      {
-        "@type": "Question",
-        name: "How long does it take to see results?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Most clients begin feeling a shift within 7 to 21 days. Some experience immediate relief, particularly with cleansing and protection work. Love spells and complex curse removal may take longer depending on the depth of the spiritual blockage.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Is the consultation really free?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Your first consultation is completely free with no obligation. I believe you should have clarity about your situation before making any commitment.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Is everything confidential?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Absolutely. Everything you share is held in complete confidence. I do not discuss, disclose, or share any client's situation with any third party, ever. Your privacy is sacred.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How much does it cost?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Your first consultation is completely free. After that, the cost depends on the type and complexity of the spiritual work needed. I will always explain the full cost before any work begins — no hidden fees, no surprises.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can you help people who are not in Uganda?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Spiritual work transcends physical distance. I work with clients across the world — the UK, USA, Canada, South Africa, Australia, and many other countries. Distance does not diminish the power of the work.",
-        },
-      },
-    ],
+    })),
   };
 
   return (
@@ -146,15 +127,33 @@ export default function HomePage() {
       <JsonLd data={localBusinessSchema} />
       <JsonLd data={personSchema} />
       <JsonLd data={faqSchema} />
-      <HeroSection />
-      <GlobalAuthority />
-      <SocialProofStrip />
-      <AboutTeaser />
-      <ServicesGrid />
-      <HowItWorks />
-      <FeaturedTestimonials />
-      <UrgencyBlock />
-      <FAQPreview />
+      <HeroSection
+        clientTitle={settings.clientTitle}
+        clientName={settings.clientName}
+        clientWhatsapp={settings.clientWhatsapp}
+        clientYears={settings.clientYears}
+        clientTagline={settings.clientTagline}
+      />
+      <SocialProofStrip snippets={socialProofSnippets} />
+      <AboutTeaser
+        clientTitle={settings.clientTitle}
+        clientName={settings.clientName}
+        clientYears={settings.clientYears}
+        clientOrigin={settings.clientOrigin}
+      />
+      <ServicesGrid services={serviceCards} />
+      <HowItWorks
+        steps={howItWorksSteps}
+        clientTitle={settings.clientTitle}
+        clientName={settings.clientName}
+      />
+      <FeaturedTestimonials testimonials={featuredT} />
+      <UrgencyBlock
+        clientTitle={settings.clientTitle}
+        clientName={settings.clientName}
+        clientWhatsapp={settings.clientWhatsapp}
+      />
+      <FAQPreview faqs={faqItems} />
     </>
   );
 }

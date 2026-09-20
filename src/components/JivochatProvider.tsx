@@ -3,30 +3,29 @@
 import Script from "next/script";
 import { useEffect } from "react";
 
-export default function JivochatProvider() {
-  const widgetId = process.env.NEXT_PUBLIC_JIVOCHAT_WIDGET_ID;
+interface JivochatProviderProps {
+  widgetId: string;
+}
 
+export default function JivochatProvider({ widgetId }: JivochatProviderProps) {
   if (!widgetId || widgetId === "your_widget_id_here") return null;
 
   return (
     <>
       <style>{`
-        /* Mobile Jivochat Adjustment */
         @media (max-width: 767px) {
-          #jivo-iframe-container {
-            bottom: 70px !important;
-            right: 10px !important;
-          }
           .jivo-btn {
-            bottom: 70px !important;
-            right: 10px !important;
+            bottom: 116px !important;
+            right: 16px !important;
+          }
+          .jivo-btn-label {
+            display: none !important;
           }
         }
-        /* Desktop Jivochat Adjustment */
         @media (min-width: 768px) {
-          #jivo-iframe-container {
-            bottom: 20px !important;
-            right: 80px !important;
+          .jivo-btn {
+            bottom: 28px !important;
+            right: 96px !important;
           }
         }
       `}</style>

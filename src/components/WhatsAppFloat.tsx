@@ -3,16 +3,19 @@
 import { useState } from "react";
 import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
-export default function WhatsAppFloat() {
-  const whatsapp = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP || "";
-  const clientTitle = process.env.NEXT_PUBLIC_CLIENT_TITLE || "";
-  const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "";
+interface WhatsAppFloatProps {
+  clientWhatsapp: string;
+  clientTitle: string;
+  clientName: string;
+}
+
+export default function WhatsAppFloat({ clientWhatsapp, clientTitle, clientName }: WhatsAppFloatProps) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  if (!whatsapp) return null;
+  if (!clientWhatsapp) return null;
 
   return (
-    <div className="fixed right-4 bottom-[135px] md:bottom-[28px] md:right-[28px]" style={{ zIndex: 9999 }}>
+    <div className="fixed right-4 bottom-[180px] md:bottom-[28px] md:right-[28px]" style={{ zIndex: 9999 }}>
       {showTooltip && (
         <div className="absolute right-[72px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-[family-name:var(--font-body)] text-[#0A0A12] shadow-lg hidden md:block"
           style={{ background: "var(--color-gold-primary)" }}
@@ -21,7 +24,7 @@ export default function WhatsAppFloat() {
         </div>
       )}
       <a
-        href={`https://wa.me/${cleanWhatsappNumber(whatsapp)}?text=Hello%2C%20I%20found%20your%20website%20and%20need%20spiritual%20help`}
+        href={`https://wa.me/${cleanWhatsappNumber(clientWhatsapp)}?text=Hello%2C%20I%20found%20your%20website%20and%20need%20spiritual%20help`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"

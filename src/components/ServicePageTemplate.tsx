@@ -1,8 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import JsonLd from "@/components/JsonLd";
-import ReviewForm from "@/components/ReviewForm";
 import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
 interface ServicePageTemplateProps {
@@ -26,11 +24,9 @@ interface ServicePageTemplateProps {
   conversionCopy: { heading: string; body: string };
   icon?: string;
   badge?: string;
-  heroImage?: string;
+  clientWhatsapp?: string;
+  clientYears?: number;
 }
-
-const CLIENT_WHATSAPP = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP ?? "";
-const CLIENT_YEARS = process.env.NEXT_PUBLIC_CLIENT_YEARS ?? "";
 
 export default function ServicePageTemplate({
   title,
@@ -48,9 +44,12 @@ export default function ServicePageTemplate({
   conversionCopy,
   icon,
   badge,
-  heroImage,
+  clientWhatsapp,
+  clientYears,
 }: ServicePageTemplateProps) {
-  const whatsappUrl = `https://wa.me/${cleanWhatsappNumber(CLIENT_WHATSAPP)}?text=${whatsappPreFill}`;
+  const CLIENT_WHATSAPP = clientWhatsapp || process.env.NEXT_PUBLIC_CLIENT_WHATSAPP ?? "";
+  const CLIENT_YEARS = clientYears || Number(process.env.NEXT_PUBLIC_CLIENT_YEARS) || 25;
+  const whatsappUrl = `https://wa.me/${cleanWhatsappNumber(String(CLIENT_WHATSAPP))}?text=${whatsappPreFill}`;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -73,20 +72,9 @@ export default function ServicePageTemplate({
     <>
       <JsonLd data={faqSchema} />
 
-      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
-        {heroImage && (
-          <div className="absolute inset-0">
-            <Image
-              src={heroImage}
-              alt={seoH1}
-              fill
-              priority
-              className="object-cover opacity-30"
-            />
-          </div>
-        )}
-        <div className="bg-stars absolute inset-0 opacity-20" />
-        <div className="bg-gradient-to-b from-deepnight/60 via-deepnight/80 to-deepnight absolute inset-0" />
+      <section className="relative flex min-h-[60vh] items-center justify-center">
+        <div className="bg-stars absolute inset-0" />
+        <div className="bg-bg-deepnight/75 absolute inset-0" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           {icon && (
@@ -99,10 +87,10 @@ export default function ServicePageTemplate({
             {subheading}
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/consultation/"
-              className="inline-block bg-gradient-to-r from-gold-primary to-gold-light px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-deepnight shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)] w-full sm:w-auto"
+              className="inline-block bg-gradient-to-r from-gold-primary to-gold-light px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-bg-deepnight shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(201,168,76,0.6)]"
             >
               ✦ Begin Your Consultation
             </Link>
@@ -110,7 +98,7 @@ export default function ServicePageTemplate({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-whatsapp px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-shadow hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] w-full sm:w-auto"
+              className="inline-flex items-center gap-2 bg-whatsapp px-8 py-4 font-[family-name:var(--font-heading)] text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-shadow hover:shadow-[0_0_20px_rgba(37,211,102,0.4)]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -124,14 +112,12 @@ export default function ServicePageTemplate({
             </a>
           </div>
         </div>
-      </section>
 
-      <section className="py-16 px-6">
-        <div className="mx-auto max-w-4xl">
-          <p className="font-[family-name:var(--font-serif)] text-[clamp(1.05rem,3vw,1.15rem)] leading-[1.85] text-text-primary">
-            {leadParagraph}
-          </p>
-        </div>
+        {badge && (
+          <span className="absolute top-8 right-8 z-10 bg-gradient-to-r from-gold-primary to-gold-light px-4 py-2 font-[family-name:var(--font-heading)] text-xs font-bold uppercase tracking-wider text-bg-deepnight shadow-[0_0_12px_rgba(201,168,76,0.5)]">
+            {badge}
+          </span>
+        )}
       </section>
 
       <section className="py-16 px-6">
@@ -152,7 +138,7 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-elevated">
+      <section className="py-24 px-6 bg-bg-elevated">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-10 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-text-primary">
             Who This Is For
@@ -194,7 +180,7 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-elevated">
+      <section className="py-24 px-6 bg-bg-elevated">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-text-primary">
             What to Expect
@@ -212,7 +198,7 @@ export default function ServicePageTemplate({
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="relative rounded-r-lg border-l-3 border-l-gold-primary bg-surface p-6"
+                className="relative rounded-r-lg border-l-3 border-l-gold-primary bg-bg-surface p-6"
               >
                 <span className="absolute left-4 top-4 font-serif text-6xl leading-none text-gold-primary/20">
                   &ldquo;
@@ -221,18 +207,10 @@ export default function ServicePageTemplate({
                   {t.quote}
                 </p>
                 <div className="mt-4">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-medium text-text-primary">
-                      {t.name}
-                    </span>
-                    <div className="flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-success">
-                      <svg className="h-2.5 w-2.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Verified
-                    </div>
-                  </div>
-                  <span className="text-sm text-text-muted">
+                  <span className="font-medium text-text-primary">
+                    {t.name}
+                  </span>
+                  <span className="ml-2 text-sm text-text-muted">
                     {t.location}
                   </span>
                   <div className="mt-1 text-sm text-gold-primary">
@@ -246,13 +224,7 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="mx-auto max-w-2xl">
-          <ReviewForm />
-        </div>
-      </section>
-
-      <section className="py-24 px-6 bg-elevated">
+      <section className="py-24 px-6 bg-bg-elevated">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-10 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-text-primary">
             Frequently Asked Questions About {title}
@@ -261,7 +233,7 @@ export default function ServicePageTemplate({
             {faqItems.map((item, i) => (
               <details
                 key={i}
-                className="group border border-gold-dim/20 bg-surface"
+                className="group border border-gold-dim/20 bg-bg-surface"
               >
                 <summary className="flex cursor-pointer items-center justify-between p-5 font-[family-name:var(--font-heading)] text-sm font-semibold text-text-primary transition-colors hover:text-gold-primary">
                   {item.question}
@@ -288,7 +260,7 @@ export default function ServicePageTemplate({
               <Link
                 key={i}
                 href={service.href}
-                className="inline-block border border-gold-dim/30 bg-surface px-6 py-3 font-[family-name:var(--font-heading)] text-sm font-semibold text-gold-primary transition-colors hover:bg-gold-primary/10"
+                className="inline-block border border-gold-dim/30 bg-bg-surface px-6 py-3 font-[family-name:var(--font-heading)] text-sm font-semibold text-gold-primary transition-colors hover:bg-gold-primary/10"
               >
                 ✦ {service.title}
               </Link>
