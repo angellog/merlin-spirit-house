@@ -30,7 +30,7 @@ export default function HomePage() {
     },
     openingHours: "Mo-Su 00:00-23:59",
     priceRange: "$$",
-    image: `${clientDomain}/opengraph-image.png`,
+    image: `${clientDomain}/images/portrait/prof-ndaula-headshot.jpg`,
     sameAs: [
       `https://wa.me/${clientWhatsapp.replace(/[^0-9]/g, "")}`,
     ],
@@ -57,7 +57,7 @@ export default function HomePage() {
     jobTitle: "Traditional Spiritual Healer & Voodoo Practitioner",
     description: `Born into a lineage of traditional healers, ${clientTitle} ${clientName} has practiced ancestral spiritual healing for over 13 years, serving international clients from Uganda, Kenya, UK, USA, Canada, South Africa, and Australia.`,
     url: `${clientDomain}/about/`,
-    image: `${clientDomain}/opengraph-image.png`,
+    image: `${clientDomain}/images/portrait/prof-ndaula-headshot.jpg`,
     worksFor: {
       "@type": "Organization",
       name: "Merlin Spirit House",
