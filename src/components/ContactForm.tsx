@@ -1,48 +1,67 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { contactFormSchema, type ContactFormData } from "@/lib/contact-schema";
+import { cleanWhatsappNumber } from "@/lib/whatsapp";
 
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  contactMethod: z.enum(["whatsapp", "email"]),
-  contactValue: z.string().min(1, "Please provide your contact number or email"),
-  situation: z.string().min(10, "Please describe your situation (at least 10 characters)"),
-  honeypot: z.string().max(0),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+type SubmitState = "idle" | "success" | "unavailable" | "error";
 
 export default function ContactForm() {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(contactFormSchema),
     defaultValues: { contactMethod: "whatsapp" },
   });
 
+  // react-hook-form's isSubmitSuccessful only means the submit handler
+  // resolved, not that the server accepted anything. Relying on it showed the
+  // "Message Received" panel for submissions the API had rejected outright,
+  // so success is tracked from the actual response instead.
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+
   const clientTitle = process.env.NEXT_PUBLIC_CLIENT_TITLE || "The Healer";
+  const whatsapp = cleanWhatsappNumber(
+    process.env.NEXT_PUBLIC_CLIENT_WHATSAPP || ""
+  );
+  const whatsappUrl = whatsapp
+    ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(
+        "Hello, I tried to send a message through your website but it did not go through."
+      )}`
+    : null;
 
   const onSubmit = async (data: ContactFormData) => {
     const { honeypot, ...payload } = data;
     if (honeypot) return;
 
-    const res = await fetch("/api/contact/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    try {
+      const res = await fetch("/api/contact/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    if (res.ok) {
-      reset();
+      if (res.ok) {
+        setSubmitState("success");
+        reset();
+        return;
+      }
+
+      // 503 means mail is not configured on the server. The enquirer should be
+      // sent to WhatsApp rather than told to try again on a form that cannot
+      // work yet.
+      setSubmitState(res.status === 503 ? "unavailable" : "error");
+    } catch {
+      setSubmitState("error");
     }
   };
 
-  if (isSubmitSuccessful) {
+  if (submitState === "success") {
     return (
       <div className="rounded-2xl border-2 border-gold-primary bg-surface p-8 text-center">
         <span className="text-4xl">✨</span>
@@ -54,7 +73,10 @@ export default function ContactForm() {
           typically within a few hours.
         </p>
         <button
-          onClick={() => reset()}
+          onClick={() => {
+            setSubmitState("idle");
+            reset();
+          }}
           className="mt-4 text-sm font-medium text-gold-primary transition-colors hover:underline"
         >
           Send another message
@@ -153,6 +175,47 @@ export default function ContactForm() {
           autoComplete="off"
         />
       </div>
+
+      {(submitState === "unavailable" || submitState === "error") && (
+        <div
+          role="alert"
+          className="rounded-xl border border-red-400/40 bg-red-400/10 p-4 text-sm leading-relaxed text-red-200"
+        >
+          {submitState === "unavailable" ? (
+            <>
+              <strong className="block text-red-100">
+                This form is not able to send right now.
+              </strong>
+              <span className="mt-1 block">
+                Your message was not sent, and we would rather tell you than
+                leave you waiting for a reply that never comes.
+                {whatsappUrl ? " Please reach us on WhatsApp instead — it is the fastest way." : ""}
+              </span>
+            </>
+          ) : (
+            <>
+              <strong className="block text-red-100">
+                Your message could not be sent.
+              </strong>
+              <span className="mt-1 block">
+                Something went wrong on our side. Please try again in a moment
+                {whatsappUrl ? ", or reach us on WhatsApp" : ""}.
+              </span>
+            </>
+          )}
+          {whatsappUrl && (
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex h-10 items-center justify-center rounded-full px-5 text-xs font-semibold uppercase tracking-wider text-[#0A0A12]"
+              style={{ background: "#25D366" }}
+            >
+              Message on WhatsApp
+            </a>
+          )}
+        </div>
+      )}
 
       <button
         type="submit"
