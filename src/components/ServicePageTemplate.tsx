@@ -26,10 +26,40 @@ interface ServicePageTemplateProps {
   icon?: string;
   badge?: string;
   heroImage?: string;
+  /** Path segment for this service, defaulting to the slugified title. */
+  slug?: string;
 }
 
 const CLIENT_WHATSAPP = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP ?? "";
 const CLIENT_YEARS = process.env.NEXT_PUBLIC_CLIENT_YEARS ?? "";
+const CLIENT_NAME = process.env.NEXT_PUBLIC_CLIENT_NAME ?? "";
+const CLIENT_TITLE = process.env.NEXT_PUBLIC_CLIENT_TITLE ?? "";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://merlinspirithouse.com";
+
+// Countries named in the site's own copy as the markets served. Used for
+// Service.areaServed so these pages carry geographic relevance instead of a
+// vague "Worldwide", which search engines cannot weigh.
+const AREAS_SERVED = [
+  "Uganda",
+  "Kenya",
+  "United Kingdom",
+  "United States",
+  "Canada",
+  "South Africa",
+  "Australia",
+];
+
+// Every current service page lives at /<slugified title>/ -- love-spells,
+// curse-removal, traditional-healing and so on -- so the slug is derived
+// rather than threaded through all eight call sites. Pass `slug` explicitly
+// if a page ever departs from that convention.
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
 export default function ServicePageTemplate({
   title,
@@ -48,8 +78,62 @@ export default function ServicePageTemplate({
   icon,
   badge,
   heroImage,
+  slug,
 }: ServicePageTemplateProps) {
   const whatsappUrl = `https://wa.me/${cleanWhatsappNumber(CLIENT_WHATSAPP)}?text=${whatsappPreFill}`;
+
+  const servicePath = `/${slug ?? slugify(title)}/`;
+  const serviceUrl = `${SITE_URL}${servicePath}`;
+  const providerName = `${CLIENT_TITLE} ${CLIENT_NAME}`.trim();
+
+  // These pages previously emitted FAQPage schema only, so search engines saw
+  // a page of questions with no indication it described a bookable service.
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: title,
+    serviceType: title,
+    description: subheading,
+    url: serviceUrl,
+    provider: {
+      "@type": "Person",
+      name: providerName,
+      jobTitle: "Traditional Spiritual Healer & Voodoo Practitioner",
+      url: `${SITE_URL}/about/`,
+    },
+    areaServed: AREAS_SERVED.map((name) => ({
+      "@type": "Country",
+      name,
+    })),
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${SITE_URL}/consultation/`,
+      ...(CLIENT_WHATSAPP
+        ? { servicePhone: `+${cleanWhatsappNumber(CLIENT_WHATSAPP)}` }
+        : {}),
+      availableLanguage: { "@type": "Language", name: "English" },
+    },
+  };
+
+  // No /services/ index page exists, so the trail is two levels deep.
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${SITE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: title,
+        item: serviceUrl,
+      },
+    ],
+  };
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -70,6 +154,8 @@ export default function ServicePageTemplate({
 
   return (
     <>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
       <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">

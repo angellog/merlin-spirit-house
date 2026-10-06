@@ -15,8 +15,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Book a Private Consultation — Free & Confidential`,
     description: `Book a free, private consultation with ${clientTitle} ${clientName}. No obligation, no pressure — just honest spiritual guidance.`,
-    url: `${clientDomain}/consultation`,
+    url: `${clientDomain}/consultation/`,
   },
+  alternates: { canonical: `/consultation/` },
 };
 
 export default function ConsultationPage() {
@@ -45,7 +46,7 @@ export default function ConsultationPage() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: `Book a Consultation with ${clientTitle} ${clientName}`,
-    url: `${clientDomain}/consultation`,
+    url: `${clientDomain}/consultation/`,
     mainEntity: {
       "@type": "Person",
       name: `${clientTitle} ${clientName}`,

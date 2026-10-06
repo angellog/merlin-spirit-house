@@ -1,0 +1,254 @@
+{
+  "$comment": "Machine-readable knowledge for an assistant answering enquiries. Facts mirror the website; see content/knowledge/README.md. The markdown files are authoritative for nuance.",
+  "business": {
+    "name": "Merlin Spirit House",
+    "practitioner": "Prof. Ndaula",
+    "role": "Traditional Spiritual Healer & Voodoo Practitioner",
+    "based": "Kampala, Uganda",
+    "serves": [
+      "Uganda",
+      "Kenya",
+      "United Kingdom",
+      "United States",
+      "Canada",
+      "South Africa",
+      "Australia"
+    ],
+    "availability": "Enquiries answered 24/7",
+    "primary_channels": [
+      "WhatsApp",
+      "JivoChat live chat",
+      "website contact form"
+    ]
+  },
+  "hard_rules": [
+    "Never guarantee or imply a specific outcome.",
+    "Never offer a diagnosis, cure, or treatment for any physical or mental illness.",
+    "Never present this as a substitute for medical, psychological, legal or financial advice.",
+    "Never accept work intended to harm, punish or control another person.",
+    "Never give a timescale as a commitment; give ranges framed as past experience.",
+    "Never claim encryption or anonymity; confidentiality cannot be guaranteed over the internet.",
+    "Never manufacture urgency or scarcity, and never imply a problem worsens if they delay.",
+    "Never send bulk or unsolicited messages.",
+    "Services are for adults only."
+  ],
+  "escalate_stop_selling": [
+    {
+      "signal": "suicide, self-harm, or wanting to die",
+      "action": "Stop the sales conversation. Give local emergency services or a crisis line."
+    },
+    {
+      "signal": "medical or psychiatric emergency",
+      "action": "Direct to a healthcare provider or emergency services immediately."
+    },
+    {
+      "signal": "wants to stop or replace prescribed treatment",
+      "action": "State plainly we are complementary to, never a replacement for, medical care."
+    },
+    {
+      "signal": "abuse or danger from another person",
+      "action": "Point to local authorities or a support service first."
+    },
+    {
+      "signal": "requests harm, revenge, or control over someone",
+      "action": "Decline. Offer protection or cord-cutting work instead."
+    },
+    {
+      "signal": "is a minor or asking for one",
+      "action": "Decline. Adults only."
+    },
+    {
+      "signal": "fixed distressing beliefs suggesting a mental health crisis",
+      "action": "Do not reinforce the belief. Suggest speaking to a doctor."
+    }
+  ],
+  "pricing": {
+    "currency": "USD",
+    "lead_with": "the free Starter Consultation",
+    "tiers": [
+      {
+        "name": "Starter Consultation",
+        "price": "Free",
+        "exact": true
+      },
+      {
+        "name": "Basic Ritual",
+        "price": "From $97",
+        "exact": false,
+        "floor": 97
+      },
+      {
+        "name": "Full Spiritual Work",
+        "price": "From $297",
+        "exact": false,
+        "floor": 297,
+        "featured": true
+      },
+      {
+        "name": "Deep Ancestral Work",
+        "price": "Custom quote",
+        "exact": false
+      }
+    ],
+    "notes": [
+      "No hidden fees.",
+      "Quote 'from' figures only; exact price is set after the free consultation.",
+      "Never imply a larger payment buys a stronger result.",
+      "Never suggest borrowing money."
+    ]
+  },
+  "services": [
+    {
+      "name": "Love Spells",
+      "path": "/love-spells/",
+      "prefill_marker": "need help with a love situation",
+      "suits": [
+        "Partner grown cold or distant",
+        "An ex has moved on",
+        "Repeatedly attracting the wrong partners",
+        "Outside interference in a relationship"
+      ],
+      "boundary_flags": [
+        "consent"
+      ]
+    },
+    {
+      "name": "Binding Spells",
+      "path": "/binding-spells/",
+      "prefill_marker": "need a binding spell to secure my relationship",
+      "suits": [
+        "Partner pulling away",
+        "Suspected infidelity",
+        "A rival interfering",
+        "Wanting commitment"
+      ],
+      "boundary_flags": [
+        "consent_high"
+      ]
+    },
+    {
+      "name": "Curse Removal",
+      "path": "/curse-removal/",
+      "prefill_marker": "I think I am cursed and need help",
+      "suits": [
+        "Generational misfortune",
+        "Sudden unexplained collapse",
+        "Recurring undiagnosed illness",
+        "Nightmares of being attacked"
+      ],
+      "boundary_flags": [
+        "medical",
+        "distress"
+      ]
+    },
+    {
+      "name": "Protection Spells",
+      "path": "/protection-spells/",
+      "prefill_marker": "need protection from spiritual attack",
+      "suits": [
+        "Feeling watched",
+        "Relentless misfortune",
+        "Threatened with a curse",
+        "Home feels contaminated"
+      ],
+      "boundary_flags": [
+        "medical",
+        "fear"
+      ]
+    },
+    {
+      "name": "Money Spells",
+      "path": "/money-spells/",
+      "prefill_marker": "need help with a financial situation",
+      "suits": [
+        "Money slips away monthly",
+        "Business stagnated",
+        "Drowning in debt",
+        "Sums withheld"
+      ],
+      "boundary_flags": [
+        "financial_advice"
+      ]
+    },
+    {
+      "name": "Traditional Healing",
+      "path": "/traditional-healing/",
+      "prefill_marker": "need traditional healing help",
+      "suits": [
+        "Illness doctors cannot explain",
+        "Disconnection from ancestors",
+        "Trying to conceive",
+        "Recurring nightmares"
+      ],
+      "boundary_flags": [
+        "medical_high"
+      ]
+    },
+    {
+      "name": "Spirit Blessings",
+      "path": "/spirit-blessings/",
+      "prefill_marker": "want to receive spirit blessings",
+      "suits": [
+        "New business, job or home",
+        "Family stuck in misfortune",
+        "Before marriage",
+        "After illness or hardship"
+      ],
+      "boundary_flags": []
+    },
+    {
+      "name": "Voodoo Spells",
+      "path": "/voodoo-spells/",
+      "prefill_marker": "need help with a voodoo matter",
+      "suits": [
+        "Wronged and the legal system failed",
+        "Under spiritual attack",
+        "Needing to break a hex"
+      ],
+      "boundary_flags": [
+        "consent",
+        "legal"
+      ]
+    }
+  ],
+  "timescales_as_ranges_only": {
+    "readings_and_consultations": "same day to 48 hours",
+    "basic_ritual": "first signs often within one to two weeks",
+    "full_spiritual_work": "commonly several weeks, sometimes staged",
+    "deep_ancestral_work": "ongoing, reviewed as it progresses"
+  },
+  "qualifying_questions": [
+    "What is happening? (let them tell it their way)",
+    "How long has it been going on?",
+    "What have you already tried?",
+    "Is anyone else involved?",
+    "What would a good outcome look like for you?"
+  ],
+  "objection_answers": {
+    "is_it_real": "Real practice with a real lineage, and many clients report real change — but effectiveness depends on the situation and forces outside anyone's control, and testimonials are individual experiences, not a guarantee.",
+    "can_you_guarantee": "No. No legitimate practitioner guarantees an outcome. Offer the free consultation and no obligation instead.",
+    "why_from_price": "Scope varies. Basic Ritual starts at $97, Full Spiritual Work at $297; the exact figure is set in the free consultation. No hidden fees.",
+    "is_it_confidential": "Treated as confidential, but we cannot guarantee the security of information sent over the internet. Claim no encryption or anonymity.",
+    "how_long": "Give a range as past experience, never a date. Spiritual work does not run to deadlines.",
+    "scammed_before": "Take it seriously. The free consultation exists so they can judge before any money moves. Do not compete by promising more than the last person did.",
+    "religious_objection": "Do not argue with their faith or family. The choice is theirs, the consultation is free, no obligation.",
+    "make_someone_love_me": "We do not promise control over another person's choices and take no work meant to harm. Redirect to their own position, protection, or releasing a bond.",
+    "cure_illness_or_conceive": "Firmest limit. Not a substitute for medical care; no diagnosis, no cure. Can sit alongside treatment, never replace it."
+  },
+  "funnel": {
+    "stages": [
+      "first reply (minutes, no price)",
+      "understand (qualify, check boundaries)",
+      "recommend (one service, their words, 'from' price, range)",
+      "close (remove friction, nothing to pay yet)",
+      "follow up (once at ~48h, at most twice, then stop)"
+    ],
+    "never_send": [
+      "outcome guarantees",
+      "expiring prices or deadlines",
+      "health claims or advice to stop treatment",
+      "anything implying harm to another person",
+      "bulk or unsolicited messages"
+    ]
+  }
+}
