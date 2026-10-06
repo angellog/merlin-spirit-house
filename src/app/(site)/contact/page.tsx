@@ -17,8 +17,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Contact ${clientTitle} ${clientName} — Available 24/7`,
     description: `Reach ${clientTitle} ${clientName} anytime via WhatsApp, email, or contact form. Available 24/7 for spiritual consultations worldwide.`,
-    url: `${clientDomain}/contact`,
+    url: `${clientDomain}/contact/`,
   },
+  alternates: { canonical: `/contact/` },
 };
 
 export default function ContactPage() {
@@ -28,7 +29,7 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: `Contact ${clientTitle} ${clientName}`,
-    url: `${clientDomain}/contact`,
+    url: `${clientDomain}/contact/`,
     mainEntity: {
       "@type": "Person",
       name: `${clientTitle} ${clientName}`,

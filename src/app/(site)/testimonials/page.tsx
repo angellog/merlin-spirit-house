@@ -13,8 +13,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Real Stories — Clients Healed & Blessed by ${clientTitle} ${clientName}`,
     description: `Read genuine testimonials from clients worldwide who have experienced the power of ${clientTitle} ${clientName}'s spiritual healing, love spells, protection, and curse removal.`,
-    url: `${clientDomain}/testimonials`,
+    url: `${clientDomain}/testimonials/`,
   },
+  alternates: { canonical: `/testimonials/` },
 };
 
 const testimonials = [

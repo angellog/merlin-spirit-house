@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+// Post-conversion page. It must stay out of the index: it has no search value,
+// and when indexed it can rank for brand queries ahead of the real pages and
+// show visitors a "message received" screen they never submitted.
+export const metadata: Metadata = {
+  title: "Thank You",
+  robots: { index: false, follow: false },
+};
 
 const clientTitle = process.env.NEXT_PUBLIC_CLIENT_TITLE || "Prof.";
 const clientWhatsapp = process.env.NEXT_PUBLIC_CLIENT_WHATSAPP || "+256788546704";
